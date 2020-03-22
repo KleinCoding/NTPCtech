@@ -14,10 +14,10 @@ import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
-import SectionPills from "./Sections/SectionPills.js";
-import SectionInterested from "./Sections/SectionInterested.js";
-import SectionImage from "./Sections/SectionImage.js";
-import SubscribeLine from "./Sections/SubscribeLine.js";
+import SectionPills from "./Sections/SectionPills.js.js";
+import SectionInterested from "./Sections/SectionInterested.js.js";
+import SectionImage from "./Sections/SectionImage.js.js";
+import SubscribeLine from "./Sections/SubscribeLine.js.js";
 
 import blogPostsPageStyle from "assets/jss/material-kit-pro-react/views/blogPostsPageStyle.js";
 

@@ -13,7 +13,10 @@ import {
   blackColor,
   whiteColor,
   grayColor,
-  hexToRgb
+  hexToRgb,
+  ntpcBlue,
+  ntpcGreen,
+  ntpcOrange
 } from "assets/jss/material-kit-pro-react.js";
 
 const headerStyle = theme => ({
@@ -75,17 +78,17 @@ const headerStyle = theme => ({
     marginTop: "0px"
   },
   primary: {
-    backgroundColor: primaryColor[0],
+    backgroundColor: ntpcBlue[0],
     color: whiteColor,
     boxShadow:
       "0 4px 20px 0px rgba(" +
       hexToRgb(blackColor) +
       ", 0.14), 0 7px 12px -5px rgba(" +
-      hexToRgb(primaryColor[0]) +
+      hexToRgb(ntpcBlue[0]) +
       ", 0.46)"
   },
   info: {
-    backgroundColor: infoColor[0],
+    backgroundColor: ntpcBlue[1],
     color: whiteColor,
     boxShadow:
       "0 4px 20px 0px rgba(" +

@@ -1,17 +1,14 @@
 import React from "react";
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// react component for creating beautiful carousel
+
 import Carousel from "react-slick";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-// @material-ui/icons
-import Share from "@material-ui/icons/Share";
-import ShoppingCart from "@material-ui/icons/ShoppingCart";
+
 // core components
-import Header from "components/Header/Header.js";
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -20,13 +17,7 @@ import GridItem from "components/Grid/GridItem.js";
 
 import headersStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/headersStyle.js";
 
-
-import dg1 from "assets/img/dg1.jpg";
-import dg2 from "assets/img/dg2.jpg";
-import dg3 from "assets/img/dg3.jpg";
-
-import piepass from "assets/img/jason/piepass.jpg"
-import security from "assets/img/jason/security.jpg"
+import frontcounter from "assets/img/jason/frontcounter.jpg"
 import serverroom from "assets/img/jason/serverroom.jpg"
 import womanglass from "assets/img/jason/womanglass.jpg"
 import welikeyou from "assets/img/jason/welikeyou.jpg"
@@ -44,75 +35,25 @@ export default function SectionHeader({ ...rest }) {
     autoplay: true
   };
   return (
-    // we've set the className to cd-section so we can make smooth scroll to it
-    
-    <div className="cd-section" {...rest}>
+     <div className="cd-section" {...rest}>
       <div className={classes.sectionBlank} id="blanksection" />
      
-      {/* HEADER 3 START */}
+      {/* HEADER START */}
       <div>
-        {/* <Header
-          absolute
-          color="transparent"
-         
-          links={
-            <List className={classes.list + " " + classes.mlAuto}>
-              <ListItem className={classes.listItem}>
-                <Button
-                  href="#pablo"
-                  className={classes.navLink}
-                  onClick={e => e.preventDefault()}
-                  color="transparent"
-                >
-                  Home
-                </Button>
-              </ListItem>
-              <ListItem className={classes.listItem}>
-                <Button
-                  href="#pablo"
-                  className={classes.navLink}
-                  onClick={e => e.preventDefault()}
-                  color="transparent"
-                >
-                  About us
-                </Button>
-              </ListItem>
-              <ListItem className={classes.listItem}>
-                <Button
-                  href="#pablo"
-                  className={classes.navLink}
-                  onClick={e => e.preventDefault()}
-                  color="transparent"
-                >
-                  Products
-                </Button>
-              </ListItem>
-              <ListItem className={classes.listItem}>
-                <Button
-                  href="#pablo"
-                  className={classes.navLink}
-                  onClick={e => e.preventDefault()}
-                  color="transparent"
-                >
-                  Contact us
-                </Button>
-              </ListItem>
-            </List>
-          }
-        /> */}
+
         <Carousel {...settings}>
           {/* Carousel 1 START */}
           <div>
             <div
               className={classes.pageHeader}
-              style={{ backgroundImage: `url("${serverroom}")` }}
+              style={{ backgroundImage: `url("${frontcounter}")` }}
             >
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={6} md={6}>
                     <h1 className={classes.title}>Quick Service IT Solutions</h1>
                     <br />
-                    <Button color="danger" size="lg">
+                    <Button color="logoOrange" size="lg">
                       See Our Services
                     </Button>
                   </GridItem>
@@ -144,8 +85,10 @@ export default function SectionHeader({ ...rest }) {
                      Keep up with what NTPC Solutions is doing to stay ahead of the game by following us on your favorite social media service or by following our blog.
                     </h4>
                     <br />
-                    <h6>Connect with us on:</h6>
+                    <h6>Connect with us on:</h6>'
+                  
                     <div>
+                                 {/* Social Media icons on carouself, add HREF for link */}
                       <Button color="white" simple size="lg" justIcon>
                         <i className="fab fa-twitter" />
                       </Button>
@@ -185,7 +128,7 @@ export default function SectionHeader({ ...rest }) {
                     </h4>
                     <br />
                     <div>
-                      <Button color="danger" size="lg">
+                      <Button color="logoOrange" size="lg">
                         Contact Us
                       </Button>
                     </div>

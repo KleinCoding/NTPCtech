@@ -132,6 +132,34 @@ const grayColor = [
   "#505050",
   "#1f1f1f"
 ];
+
+
+const ntpcBlue = [
+  "#3d79bd",
+  "#4C87CA",
+  "#5094E0",
+  "#62AAFA",
+  "#ADCEF2"
+
+];
+
+const ntpcGreen = [
+  "#96c93d",
+  "#A0D83F",
+  "#A3E03A",
+  "#B3F345",
+  "#D7F0AC"
+];
+
+const ntpcOrange = [
+  "#f58320",
+  "#F78F35",
+  "#F39A4D",
+  "#F3A969",
+  "#FAC08D"
+];
+
+
 const whiteColor = "#FFF";
 const blackColor = "#000";
 const twitterColor = "#55acee";
@@ -493,5 +521,8 @@ export {
   mrAuto,
   btnLink,
   coloredShadow,
-  hexToRgb
+  hexToRgb,
+  ntpcGreen,
+  ntpcBlue,
+  ntpcOrange
 };

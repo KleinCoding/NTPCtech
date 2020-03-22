@@ -13,7 +13,7 @@ import GridItem from "components/Grid/GridItem.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
 
-import contactStyle from "assets/jss/material-kit-pro-react/views/aboutUsSections/contactStyle.js";
+import contactStyle from "assets/jss/material-kit-pro-react/views/Templates/aboutUsSections/contactStyle.js";
 
 const useStyles = makeStyles(contactStyle);
 
