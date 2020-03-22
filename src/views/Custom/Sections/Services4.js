@@ -74,7 +74,7 @@ export default function SectionServices(props, { ...rest }) {
                   <a href="#pablo" onClick={e => e.preventDefault}>
                     <h3 className={classes.cardTitle}>Software Development</h3>
                     <p className={classes.cardDescription}>
-                      Software Development
+                      Custom programming and dedicated support
                     </p>
                   </a>
                 </CardBody>

@@ -103,10 +103,10 @@ export default function SectionsPage() {
       console.log(currPos.y)
       const isShow = currPos.y 
       if (isShow !== hideOnScroll) setHideOnScroll(isShow)
-      if (isShow  >= 500 ) setServicePlayState("running")
-      if (isShow  >= 900 ) setServicePlayState2("running")
-      if (isShow  >= 1200) setServicePlayState3("running")
-      if (isShow  >= 1800) setContactPlayState("running")
+      if (isShow  >= 350 ) setServicePlayState("running")
+      if (isShow  >= 800 ) setServicePlayState2("running")
+      if (isShow  >= 1300) setServicePlayState3("running")
+      if (isShow  >= 1900) setContactPlayState("running")
       console.log("isShow", isShow)
       console.log("hideOnScroll", hideOnScroll)
     },

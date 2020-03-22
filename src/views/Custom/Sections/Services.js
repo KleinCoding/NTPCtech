@@ -56,7 +56,7 @@ export default function SectionServices( props, { ...rest }) {
         <div class="ld ld-flip-v-in" 
         style={{
         animationPlayState: `running`,
-        animationDuration: `1.5s`
+        animationDuration: `2.5s`
       }}>
           <GridContainer>
             <GridItem
@@ -71,9 +71,7 @@ export default function SectionServices( props, { ...rest }) {
                 What can we do for your IT Needs?
               </h2>
               <h5 className={classes.description}>
-                This is the paragraph where you can write more details about
-                your projects. Keep you user engaged by providing meaningful
-                information.
+                NTPC Tech Solutions is here to provide you with any IT service you need. With the ability to find a programmatic IT solution to any technical hurdle you're facing, NTPC Tech has you covered.
               </h5>
               <div className={classes.sectionSpace} />
             </GridItem>
@@ -126,45 +124,9 @@ export default function SectionServices( props, { ...rest }) {
             </GridItem>
           </GridContainer>
           </div>
-          {/* <hr /> */}
-          {/* <GridContainer>
-            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
-              <InfoArea
-                className={classes.info4}
-                title="Networking"
-                description="Does your office need a full-service network? "
-                icon={Timeline}
-                iconColor="rose"
-              />
-              <InfoArea
-                className={classes.info4}
-                title="Maintenance and Upkeep"
-                description="Looking for someone to monitor and maintain computers on your network?"
-                icon={Code}
-                iconColor="success"
-              />
-            </GridItem>
-            <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
-              <Card
-                background
-                className={classes.card4}
-                style={{ backgroundImage: `url(${cardProject5})` }}
-              >
-                <CardBody background className={classes.cardBody4}>
-                  <a href="#pablo" onClick={e => e.preventDefault}>
-                    <h3 className={classes.cardTitle}>Managed Service Provider</h3>
-                    <p className={classes.cardDescription}>
-                      Managed networking solutions
-                    </p>
-                  </a>
-                </CardBody>
-              </Card>
-            </GridItem>
-          </GridContainer> */}
-          
+         
         </div>
       </div>
-      {/* Project 4 END */}
     </div>
     )
   );
