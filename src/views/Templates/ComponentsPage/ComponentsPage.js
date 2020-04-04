@@ -16,17 +16,17 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 // sections for this page
-import SectionBasics from "./Sections/SectionBasics.js";
-import SectionNavbars from "./Sections/SectionNavbars.js";
-import SectionTabs from "./Sections/SectionTabs.js";
-import SectionPills from "./Sections/SectionPills.js";
-import SectionNotifications from "./Sections/SectionNotifications.js";
-import SectionPreFooter from "./Sections/SectionPreFooter.js";
-import SectionFooter from "./Sections/SectionFooter.js";
-import SectionTypography from "./Sections/SectionTypography.js";
-import SectionCards from "./Sections/SectionCards.js";
-import SectionJavascript from "./Sections/SectionJavascript.js";
-import SectionCarousel from "./Sections/SectionCarousel.js";
+import SectionBasics from "./Sections/SectionBasics.js.js";
+import SectionNavbars from "./Sections/SectionNavbars.js.js";
+import SectionTabs from "./Sections/SectionTabs.js.js";
+import SectionPills from "./Sections/SectionPills.js.js";
+import SectionNotifications from "./Sections/SectionNotifications.js.js";
+import SectionPreFooter from "./Sections/SectionPreFooter.js.js";
+import SectionFooter from "./Sections/SectionFooter.js.js";
+import SectionTypography from "./Sections/SectionTypography.js.js";
+import SectionCards from "./Sections/SectionCards.js.js";
+import SectionJavascript from "./Sections/SectionJavascript.js.js";
+import SectionCarousel from "./Sections/SectionCarousel.js.js";
 
 import componentsStyle from "assets/jss/material-kit-pro-react/views/componentsStyle.js";
 
