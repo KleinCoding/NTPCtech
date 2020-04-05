@@ -41,7 +41,7 @@ export default function SectionContacts(props, { ...rest }) {
   };
   const classes = useStyles();
   return (
-    <div className="cd-section" {...rest}>
+    <div className="cd-section" {...rest} id="contacts">
       
   
       <div

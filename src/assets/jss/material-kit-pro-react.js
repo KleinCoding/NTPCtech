@@ -201,6 +201,31 @@ const container = {
   }
 };
 
+const containerFluidCarousel = {
+  paddingRight: "15px",
+  paddingLeft: "15px",
+  marginRight: "auto",
+  marginLeft: "auto",
+  marginBottom: "200px",
+  width: "100%"
+};
+const containerCarousel = {
+  ...containerFluidCarousel,
+  "@media (min-width: 576px)": {
+    maxWidth: "540px"
+  },
+  "@media (min-width: 768px)": {
+    maxWidth: "720px"
+  },
+  "@media (min-width: 992px)": {
+    maxWidth: "960px"
+  },
+  "@media (min-width: 1200px)": {
+    maxWidth: "1140px"
+  }
+};
+
+
 const card = {
   display: "inline-block",
   position: "relative",
@@ -524,5 +549,7 @@ export {
   hexToRgb,
   ntpcGreen,
   ntpcBlue,
-  ntpcOrange
+  ntpcOrange,
+  containerCarousel,
+  containerFluidCarousel
 };

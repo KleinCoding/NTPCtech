@@ -23,7 +23,7 @@ import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 import "assets/scss/material-kit-pro-react.scss?v=1.8.0";
 
 // pages 
-import CustomPage from "views/Landing/Landing.js"
+import Landing from "views/Landing/Landing.js"
 
 
 var hist = createBrowserHistory();
@@ -43,7 +43,7 @@ function App() {
     <Router history={hist}>
       <ScrollToTop>
       <div className="App" />
-      <Route path="/custom" component={CustomPage} />
+      <Route path="/" component={Landing} />
       </ScrollToTop>
     </Router>
   )

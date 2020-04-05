@@ -7,21 +7,27 @@ import { makeStyles } from "@material-ui/core/styles";
 import Header from "./Header/Header.js";
 import HeaderLinks from "./Header/HeaderLinks.js";
 
-
+// section components
 import SectionContacts from "./Sections/contactUs"
-import SectionHeader from "./Sections/Header"
+import SectionCarousel from "./Sections/Carousel"
 import SectionServices from "./Sections/Services"
 import SectionServices2 from "./Sections/Services2"
 import SectionServices4 from "./Sections/Services4"
 
 import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+
+// CSS and transition animations
 import "../../assets/loading.css";
 import "../../assets/transition.css";
 import "./custom.css"
 
-
-
 import sectionsPageStyle from "assets/jss/material-kit-pro-react/views/sectionsPageStyle.js";
+
+//Assets, Images, Backgrounds
+import desktopBKG from  "../../assets/img/jason/NTPCbkg30.png"
+import landingLogo from '../../assets/img/jason/NTPClogoblack.png';
+// const imageUrl = window.innerWidth >= 650 ? desktopImage : mobileImage;
+const BKGUrl = desktopBKG
 
 const useStyles = makeStyles(sectionsPageStyle);
 
@@ -91,13 +97,14 @@ export default function SectionsPage() {
   const classes = useStyles();
 
 
-
+//Transition animations for services/contact sections
   const [hideOnScroll, setHideOnScroll] = useState(false)
   const [servicePlayState, setServicePlayState] = useState("paused")
   const [servicePlayState2, setServicePlayState2] = useState("paused")
   const [servicePlayState3, setServicePlayState3] = useState("paused")
   const [contactPlayState, setContactPlayState] = useState("paused")
 
+  //Hook to detect user's scroll position to animate services/contact sections
   useScrollPosition(
     ({ prevPos, currPos }) => {
       console.log(currPos.y)
@@ -115,6 +122,8 @@ export default function SectionsPage() {
     true,
     300
   )
+ 
+  //Transition animations end
 
 
   return (
@@ -122,46 +131,32 @@ export default function SectionsPage() {
         <Fragment>
       <Header show={hideOnScroll}
         color="info"
-        brand="Material Kit PRO React"
+        brand="NTPC Tech"
         links={<HeaderLinks dropdownHoverColor="info" />}
         fixed
       />
       
-      <div className={classes.main}>
-         
-        <SectionHeader id="headers" />
+{/* Landing Page Sections */}
+
+      <div className={classes.main} style={{ backgroundSize: '50%', backgroundImage: `url(${BKGUrl})`}}>
+        <SectionCarousel id="carousel" />
+        <div className= "landingLogo">
+            <img src= {landingLogo} alt="logo" style={{textAlign: "center"}}/>
+            </div>
         <SectionServices id="services" servicePlayState={servicePlayState} />
-        <SectionServices2 id="services" servicePlayState={servicePlayState2} />
-        <SectionServices4 id="services" servicePlayState={servicePlayState3} />
+        <SectionServices2 id="services1" servicePlayState={servicePlayState2} />
+        <SectionServices4 id="services2" servicePlayState={servicePlayState3} />
         <SectionContacts id="contacts" contactPlayState={contactPlayState}/>
         </div>
+
+
+{/* Vertical Nav Dots */}
       <nav id="cd-vertical-nav">
         <ul>
           <li>
             <a
-              href="#headers"
+              href="#carousel"
               data-number="1"
-              className="is-selected"
-              onClick={e => {
-                var isMobile = navigator.userAgent.match(
-                  /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
-                );
-                if (isMobile) {
-                  // if we are on mobile device the scroll into view will be managed by the browser
-                } else {
-                  e.preventDefault();
-                  smoothScroll("headers");
-                }
-              }}
-            >
-              <span className="cd-dot" />
-              <span className="cd-label">Headers</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#teams"
-              data-number="4"
               className=""
               onClick={e => {
                 var isMobile = navigator.userAgent.match(
@@ -171,18 +166,18 @@ export default function SectionsPage() {
                   // if we are on mobile device the scroll into view will be managed by the browser
                 } else {
                   e.preventDefault();
-                  smoothScroll("teams");
+                  smoothScroll("carousel");
                 }
               }}
             >
               <span className="cd-dot" />
-              <span className="cd-label">Teams</span>
+              <span className="cd-label">Top</span>
             </a>
           </li>
           <li>
             <a
-              href="#projects"
-              data-number="5"
+              href="#services"
+              data-number="2"
               className=""
               onClick={e => {
                 var isMobile = navigator.userAgent.match(
@@ -192,40 +187,18 @@ export default function SectionsPage() {
                   // if we are on mobile device the scroll into view will be managed by the browser
                 } else {
                   e.preventDefault();
-                  smoothScroll("projects");
+                  smoothScroll("services");
                 }
               }}
             >
               <span className="cd-dot" />
-              <span className="cd-label">Projects</span>
-            </a>
-          </li>
-          
-          <li>
-            <a
-              href="#testimonials"
-              data-number="7"
-              className=""
-              onClick={e => {
-                var isMobile = navigator.userAgent.match(
-                  /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
-                );
-                if (isMobile) {
-                  // if we are on mobile device the scroll into view will be managed by the browser
-                } else {
-                  e.preventDefault();
-                  smoothScroll("testimonials");
-                }
-              }}
-            >
-              <span className="cd-dot" />
-              <span className="cd-label">Testimonials</span>
+              <span className="cd-label">Services</span>
             </a>
           </li>
           <li>
             <a
               href="#contacts"
-              data-number="8"
+              data-number="3"
               className=""
               onClick={e => {
                 var isMobile = navigator.userAgent.match(
@@ -243,6 +216,7 @@ export default function SectionsPage() {
               <span className="cd-label">Contact Us</span>
             </a>
           </li>
+          
         </ul>
       </nav>
       </Fragment>

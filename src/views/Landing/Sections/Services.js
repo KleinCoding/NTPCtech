@@ -37,6 +37,7 @@ import cardProject6 from "assets/img/examples/card-project6.jpg";
 
 
 
+
 const useStyles = makeStyles(projectsStyle);
 
 
@@ -50,7 +51,7 @@ export default function SectionServices( props, { ...rest }) {
 
   return useMemo( 
     () => (
-    <div className="cd-section" {...rest}>
+    <div className="cd-section" {...rest} id="services">
       <div className={classes.projects + " " + classes.projects4}>
         <div className={classes.container} >
         <div class="ld ld-flip-v-in" 
@@ -67,6 +68,7 @@ export default function SectionServices( props, { ...rest }) {
                 classes.mlAuto + " " + classes.mrAuto + " " + classes.textCenter
               }
             >
+            
               <h2 className={classes.title}>
                 What can we do for your IT Needs?
               </h2>

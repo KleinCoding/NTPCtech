@@ -1,6 +1,7 @@
 import headerLinksStyle from "assets/jss/material-kit-pro-react/components/headerLinksStyle.js";
 import {
   container,
+  containerCarousel,
   mrAuto,
   title,
   blackColor,
@@ -22,6 +23,14 @@ const headersSection = theme => ({
       color: whiteColor
     }
   },
+  containerCarousel: {
+    ...containerCarousel,
+    zIndex: "2",
+    position: "relative",
+    "& h1, & h4, & h6": {
+      color: whiteColor
+    }
+  },
   conatinerHeader2: {
     ...container,
     zIndex: "2",
@@ -33,6 +42,7 @@ const headersSection = theme => ({
   },
   title,
   pageHeader: {
+    marginBottom: "20px",
     position: "relative",
     height: "70vh",
     maxHeight: "1600px",
@@ -80,7 +90,7 @@ const headersSection = theme => ({
     marginTop: "60px"
   },
   formControl: {
-    margin: "0",
+    margin: "10px",
     padding: "8px 0 0 0"
   },
   textRight: {

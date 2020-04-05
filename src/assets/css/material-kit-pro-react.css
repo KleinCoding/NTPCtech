@@ -1496,7 +1496,10 @@ td.rdtYear:hover {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  height: 800px }
+  height: 600px;
+  margin-bottom: 50px
+  }
+  
 
 .slick-list:focus {
   outline: none; }
