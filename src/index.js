@@ -25,11 +25,13 @@ import ContactFooter from "views/Landing/Sections/contactUs"
 // CSS for transition animations
 import "./assets/loading.css";
 import "./assets/transition.css";
+import "./index.css"
 
 
 
 var hist = createBrowserHistory();
 
+//This function ensures that the browser resets to the top of the page upon loading a route
 const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0)
@@ -51,7 +53,7 @@ function App() {
   return (
     <Router history={hist}>
       <ScrollToTop>
-      <div className="App" />
+      <div className="App" id="root-container" />
       
       <Header 
         color="NTPCBlue"

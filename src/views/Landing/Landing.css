@@ -10,9 +10,42 @@
   width: 40%;
 }
 
+#services2-card1 {
+  display: none;
+}
+
+#landing-container {
+  background-color: #ffffff;
+  background-size: 100%;
+    background-repeat: repeat;
+    background-image: url("../../assets/img/jason/NTPCbkg30.png"); 
+}
+/* The media queries for services2-card1 & services2-card2 are
+for correcting the 2nd services image placement/layout on mobile screens */
 @media screen and (max-width: 600px) {
   #cd-vertical-nav{
   display: none;
   }
+  #services2-card1 {
+    display: block
+  }
+  #services2-card2 {
+    display: none;
+  }
 }
 
+
+@media screen and (max-width: 1100px) {
+  #landing-container {
+    background-size: 150%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #landing-container {
+    background-size: 300%;
+  }
+  .landingLogo img {
+    width: 70%;
+  }
+}

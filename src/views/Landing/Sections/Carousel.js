@@ -3,13 +3,10 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-
-
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
-
 import Carousel from "react-slick";
 
 //Material Kit Pro imports
@@ -30,7 +27,7 @@ export default function SectionHeader({ ...rest }) {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 4000,
+    speed: 3500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -39,8 +36,6 @@ export default function SectionHeader({ ...rest }) {
   return (
      <div className="cd-section" {...rest} >
       <div className={classes.sectionBlank} id="blanksection" />
-     
-      {/* CAROUSEL START */}
       <div>
         <Carousel {...settings}>
           {/* SLIDE 1 START */}
@@ -62,7 +57,6 @@ export default function SectionHeader({ ...rest }) {
               </div>
             </div>
           </div>
-          {/* SLIDE 1 END */}
           {/* SLIDE 2 START */}
           <div>
             <div
@@ -73,8 +67,8 @@ export default function SectionHeader({ ...rest }) {
                 <GridContainer>
                   <GridItem
                     xs={12}
-                    sm={8}
-                    md={8}
+                    sm={6}
+                    md={6}
                     className={classNames(
                       classes.mlAuto,
                       classes.mrAuto,
@@ -108,7 +102,6 @@ export default function SectionHeader({ ...rest }) {
               </div>
             </div>
           </div>
-          {/* SLIDE 2 END */}
           {/* SLIDE 3 START */}
           <div>
             <div
@@ -119,8 +112,8 @@ export default function SectionHeader({ ...rest }) {
                 <GridContainer>
                   <GridItem
                     xs={12}
-                    sm={7}
-                    md={7}
+                    sm={6}
+                    md={6}
                     className={classNames(classes.mlAuto, classes.textRight)}
                   >
                     <h1 className={classes.title}>Personal Client Support</h1>
@@ -138,10 +131,8 @@ export default function SectionHeader({ ...rest }) {
               </div>
             </div>
           </div>
-          {/* SLIDE 3 END */}
         </Carousel>
       </div>
-      {/* CAROUSEL END */}
     </div>
   );
 }

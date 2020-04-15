@@ -1,39 +1,31 @@
 
-.login-container {
-  width : 585px;
+#login-container {
+  width : 100vw;
   height : 727px;
   display: flex;
   flex-direction: column;
   margin: auto auto;
-  margin-left: 39vw;
   justify-content: center;
   align-items: center;
   z-index: 1;
+  background-color: #ffffff;
+  background-size: 100%;
+    background-repeat: repeat;
+    background-image: url("../../assets/img/jason/NTPCbkg50.png"); 
 }
 
 
-@media screen and (max-width: 1100px) {
-  .login-container {
-  margin-left: 25vw;
+ @media screen and (max-width: 1100px) {
+  #login-container {
+    background-size: 150%;
   }
 }
-@media screen and (max-width: 800px) {
-  .login-container {
-  margin-left: auto;
-  }
-}
-
 
 @media screen and (max-width: 450px) {
-  .login-container {
+  #login-inputs {
     width: 300px;
-    margin-left: auto;
   }
-}
-
-@media screen and (max-width: 350px) {
-  .login-container {
-    width: 250px;
-    margin-left: auto
+  #login-container {
+    background-size: 250%;
   }
 }

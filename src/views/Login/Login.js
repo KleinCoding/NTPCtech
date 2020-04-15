@@ -17,22 +17,18 @@ import contactsStyle from "assets/jss/material-kit-pro-react/views/sectionsSecti
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
-
 // @material-ui/icons
 import Check from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
+
 // CSS
 import "./Login.css";
 
-//Assets, Images, Backgrounds
-import desktopBKG from "../../assets/img/jason/NTPCbkg30.png";
-
 //Variable definitions
-const BKGUrl = desktopBKG;
 const useStyles = makeStyles(contactsStyle);
 
-//These two functions are for styling the toast popups on login error
+//This function is for styling the toast popups on login submission
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -68,27 +64,45 @@ export default function SectionsPage(props) {
       loginUserData.username !== "" &&
       loginUserData.password !== ""
     ) {
-      //Add code here to submit loginUserData to your backend.
+      //Add logic here to submit loginUserData to your backend.
+      //Add logic to receive login confirmation from back-end 
       console.log("logging in user", loginUserData.username);
-      props.history.push("/");
+      alertOpen("Success! Logging you in...", "success", 3500)
+      // setLoginSuccess(true)
     } else if (loginUserData.username === "") {
-      alertOpen("Please check your username/password and try again.");
+      alertOpen("Please check your username/password and try again.", "warning", 2000);
     } else if (loginUserData.password === "") {
-      alertOpen("Please check your username/password and try again.");
+      alertOpen("Please check your username/password and try again.", "warning", 2000);
     } else if (checked.length !== 1) {
-      alertOpen("Please click the checkbox and try again.");
+      alertOpen("Please click the checkbox and try again.", "warning", 2000);
     }
   };
+  //This state value is checked by the alertClose function. If marked True,
+  //the user will be pushed to the homepage after logging in.
+  //change the path of props.history.push in alertClose to change page user is sent to
+  // eslint-disable-next-line
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
-  // //These are for the notifications on login errors
+ //These are for the notifications on message errors
+  //To add additional toast alerts, use the function alertOpen()
+  //Ex: alertOpen("message wanted", "severity wanted", "duration wanted")
+  //Severity choices: Success(green), Info (blue), Warning(orange), Error(red)
+  //Duration must be in milliseconds
+  //If duration is not supplied, notification will remain open until user closes manually
   const [alertState, setAlertState] = useState({
     open: false,
     message: "",
+    severity: "warning",
+    duration: 2000
   });
-  const alertOpen = (text) => {
+
+  const alertOpen = (text, sev, dur) => {
     setAlertState({
+      ...alertState,
       open: true,
       message: text,
+      severity: sev,
+      duration: dur
     });
   };
 
@@ -98,18 +112,24 @@ export default function SectionsPage(props) {
       open: false,
       message: "",
     });
+    if (loginSuccess === true){
+      props.history.push("/");
+    }
   };
 
+ 
+
   return (
-    <div>
+    
       <Fragment>
         <div
+          id="login-container"
           className={classes.main}
-          style={{ backgroundSize: "70%", backgroundImage: `url(${BKGUrl})` }}
+          // style={{ backgroundSize: "100%", backgroundImage: `url(${BKGUrl})` }}
         >
-          <div className="login-container">
-            <div>
-              <GridContainer>
+        
+           
+              <GridContainer id = "login-inputs">
                 <GridItem
                   xs={12}
                   sm={5}
@@ -181,19 +201,19 @@ export default function SectionsPage(props) {
                 </GridItem>
               </GridContainer>
             </div>
-          </div>
-        </div>
+         
+        
 
         <div>
-          {/* This is the toast popup for login errors */}
+          {/* This is the toast popup for login notifications */}
           <Snackbar
-            autoHideDuration={2000}
+            autoHideDuration={alertState.duration}
             anchorOrigin={{ vertical: "top", horizontal: "center" }}
             open={alertState.open}
             onClose={alertClose}
           >
             <Alert
-              severity="warning"
+              severity={alertState.severity}
               action={
                 <IconButton
                   aria-label="close"
@@ -209,6 +229,6 @@ export default function SectionsPage(props) {
           </Snackbar>
         </div>
       </Fragment>
-    </div>
+    
   );
 }

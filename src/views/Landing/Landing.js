@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import sectionsPageStyle from "assets/jss/material-kit-pro-react/views/sectionsPageStyle.js";
 
 // section components
-
 import SectionCarousel from "./Sections/Carousel"
 import SectionServices from "./Sections/Services"
 import SectionServices2 from "./Sections/Services2"
@@ -20,16 +19,15 @@ import { useScrollPosition } from '@n8tb1t/use-scroll-position'
 import "./Landing.css"
 
 //Assets, Images, Backgrounds
-import desktopBKG from  "../../assets/img/jason/NTPCbkg30.png"
 import landingLogo from '../../assets/img/jason/NTPClogoblack.png';
 
 
 //Variable definitions
-const BKGUrl = desktopBKG
 const useStyles = makeStyles(sectionsPageStyle);
 
 export default function SectionsPage() {
 
+  //These three functions are for the smooth auto scroll feature of the navigation dots on the landing page
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
     if (t < 1) return (c / 2) * t * t + b;
@@ -74,13 +72,18 @@ export default function SectionsPage() {
   //Hook to detect user's scroll position & activate animations on scroll
   useScrollPosition(
     ({ prevPos, currPos }) => {
-      console.log(currPos.y)
+      const isMobile = navigator.userAgent.match(
+        /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
+      );
       const isShow = currPos.y 
-      if (isShow  >= 350 ) setServicePlayState("running")
-      if (isShow  >= 800 ) setServicePlayState2("running")
-      if (isShow  >= 1300) setServicePlayState3("running")
-      console.log("isShow", isShow)
-      console.log("hideOnScroll", hideOnScroll)
+      //These are the scroll position definitions for DESKTOP users
+      if (isShow  >= 350 && isMobile === null ) setServicePlayState("running")
+      if (isShow  >= 800 && isMobile === null) setServicePlayState2("running")
+      if (isShow  >= 1300 && isMobile === null) setServicePlayState3("running")
+      //These are the scroll position definitions for MOBILE users
+      if (isShow  >= 500 && isMobile !== null ) setServicePlayState("running")
+      if (isShow  >= 1200 && isMobile !== null) setServicePlayState2("running")
+      if (isShow  >= 1800 && isMobile !== null) setServicePlayState3("running")
     },
     [hideOnScroll],
     false,
@@ -92,12 +95,14 @@ export default function SectionsPage() {
 
 
   return (
-    <div>
+   
         <Fragment>
  
 {/* Landing Page Sections */}
 
-      <div className={classes.main} style={{ backgroundSize: '100%', backgroundImage: `url(${BKGUrl})`}}>
+      <div id= "landing-container" className={classes.main}
+      //  style={{ backgroundSize: '100%', backgroundImage: `url(${BKGUrl})`}}
+       >
         <SectionCarousel id="carousel" />
         <div className= "landingLogo">
             <img src= {landingLogo} alt="logo" style={{textAlign: "center"}}/>
@@ -105,7 +110,7 @@ export default function SectionsPage() {
         <SectionServices id="services" servicePlayState={servicePlayState} />
         <SectionServices2 id="services1" servicePlayState={servicePlayState2} />
         <SectionServices4 id="services2" servicePlayState={servicePlayState3} />
-        {/* <SectionContacts id="contacts" contactPlayState={contactPlayState}/> */}
+      
         </div>
 
 
@@ -168,7 +173,7 @@ export default function SectionsPage() {
                   // if we are on mobile device the scroll into view will be managed by the browser
                 } else {
                   e.preventDefault();
-                  smoothScroll("contacts");
+                  smoothScroll("contact-footer-container");
                 }
               }}
             >
@@ -180,6 +185,6 @@ export default function SectionsPage() {
         </ul>
       </nav>
       </Fragment>
-    </div>
+    
   );
 }
