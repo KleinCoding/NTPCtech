@@ -8,9 +8,14 @@ import {
   dangerColor,
   warningColor,
   infoColor,
+  ntpcBlue,
+  ntpcOrange,
+  ntpcGreen,
   hexToRgb
 } from "assets/jss/material-kit-pro-react.js";
 
+
+//Custom NTPC Colors line 198
 const cardStyle = {
   card: {
     border: "0",
@@ -184,6 +189,33 @@ const cardStyle = {
   rose: {
     background:
       "linear-gradient(60deg," + roseColor[1] + "," + roseColor[2] + ")",
+    "& h1 small": {
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
+    },
+    color: whiteColor
+  },
+
+  //NTPC Colors
+
+  NTPCBlue: {
+    background:
+      "linear-gradient(60deg," + ntpcBlue[0] + "," + ntpcBlue[3] + ")",
+    "& h1 small": {
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
+    },
+    color: whiteColor
+  },
+  NTPCOrange: {
+    background:
+      "linear-gradient(60deg," + ntpcOrange[0] + "," + ntpcOrange[1] + ")",
+    "& h1 small": {
+      color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
+    },
+    color: whiteColor
+  },
+  NTPCGreen: {
+    background:
+      "linear-gradient(60deg," + ntpcGreen[0] + "," + ntpcGreen[1] + ")",
     "& h1 small": {
       color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)"
     },

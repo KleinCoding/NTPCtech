@@ -26,6 +26,10 @@ import {
   hexToRgb
 } from "assets/jss/material-kit-pro-react.js";
 
+
+//Custom NTPC Colors line 561
+
+
 const buttonStyle = {
   button: {
     minHeight: "auto",
@@ -558,8 +562,9 @@ const buttonStyle = {
     }
   },
 
+//NTPC Colors
 
-  logoBlue: {
+  NTPCBlue: {
     backgroundColor: ntpcBlue[0],
     color: whiteColor,
     boxShadow:
@@ -584,10 +589,7 @@ const buttonStyle = {
     }
   },
 
-
-
-
-  logoOrange: {
+  NTPCOrange: {
     backgroundColor: ntpcOrange[0],
     color: whiteColor,
     boxShadow:
@@ -612,8 +614,7 @@ const buttonStyle = {
     }
   },
 
-
-  logoGreen: {
+  NTPCGreen: {
     backgroundColor: ntpcGreen[0],
     color: whiteColor,
     boxShadow:
@@ -638,6 +639,7 @@ const buttonStyle = {
     }
   },
 
+//End NTPC Colors
 
   simple: {
     "&,&:focus,&:hover": {

@@ -1,6 +1,6 @@
 import React from "react";
-// @material-ui/core components
 
+// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -9,8 +9,8 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import PinDrop from "@material-ui/icons/PinDrop";
 import Phone from "@material-ui/icons/Phone";
 import Check from "@material-ui/icons/Check";
-// core components
 
+// core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
@@ -20,9 +20,9 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import Button from "components/CustomButtons/Button.js";
-
 import contactsStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/contactsStyle.js";
 
+//Assets/Images
 import city from "assets/img/examples/city.jpg";
 
 const useStyles = makeStyles(contactsStyle);
@@ -81,15 +81,12 @@ export default function SectionContacts(props, { ...rest }) {
               />
             </GridItem>
             
-            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto} class="ld ld-float-btt-in" 
-        style={{
-        animationPlayState: `${props.contactPlayState}`,
-        animationDuration: `1.5s`}} >
+            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto} >
               <Card className={classes.card1}>
                 <form>
                   <CardHeader
                     contact
-                    color="primary"
+                    color="NTPCBlue"
                     className={classes.textCenter}
                   >
                     <h4 className={classes.cardTitle}>Contact Us</h4>
@@ -153,7 +150,7 @@ export default function SectionContacts(props, { ...rest }) {
                       classes={{ label: classes.label }}
                       label="I'm not a robot"
                     />
-                    <Button color="primary" className={classes.pullRight}>
+                    <Button color="NTPCBlue" className={classes.pullRight}>
                       Send Message
                     </Button>
                   </CardFooter>
@@ -163,7 +160,6 @@ export default function SectionContacts(props, { ...rest }) {
           </GridContainer>
         </div>
       </div>
-      {/* Contact us 1 END */}
     </div>
   );
 }

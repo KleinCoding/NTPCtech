@@ -19,6 +19,9 @@ import {
   ntpcOrange
 } from "assets/jss/material-kit-pro-react.js";
 
+
+// Custom NTPC Colors line 83
+
 const headerStyle = theme => ({
   appBar: {
     display: "flex",
@@ -77,8 +80,44 @@ const headerStyle = theme => ({
     margin: "20px 10px",
     marginTop: "0px"
   },
+
+  //NTPC Colors
+
+  NTPCBlue: {
+    backgroundColor: ntpcBlue[1],
+    color: whiteColor,
+    boxShadow:
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(ntpcBlue[1]) +
+      ", 0.46)"
+  },
+  NTPCOrange: {
+    backgroundColor: ntpcOrange[1],
+    color: whiteColor,
+    boxShadow:
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(ntpcOrange[1]) +
+      ", 0.46)"
+  },
+  NTPCGreen: {
+    backgroundColor: ntpcGreen[1],
+    color: whiteColor,
+    boxShadow:
+      "0 4px 20px 0px rgba(" +
+      hexToRgb(blackColor) +
+      ", 0.14), 0 7px 12px -5px rgba(" +
+      hexToRgb(ntpcGreen[1]) +
+      ", 0.46)"
+  },
+
+  //End NTPC Colors
+
   primary: {
-    backgroundColor: ntpcBlue[0],
+    backgroundColor: primaryColor[0],
     color: whiteColor,
     boxShadow:
       "0 4px 20px 0px rgba(" +
@@ -88,7 +127,7 @@ const headerStyle = theme => ({
       ", 0.46)"
   },
   info: {
-    backgroundColor: ntpcBlue[1],
+    backgroundColor: infoColor[1],
     color: whiteColor,
     boxShadow:
       "0 4px 20px 0px rgba(" +

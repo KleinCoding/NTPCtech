@@ -1,27 +1,12 @@
-/*!
 
-=========================================================
-* Material Kit PRO React - v1.8.0
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-pro-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
 
-* Coded by Creative Tim
 
-=========================================================
+//Custom NTPC Colors line 313
 
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-*/
 
-// ##############################
-// // // Function that converts from hex color to rgb color
-// // // Example: input = #9c27b0 => output = 156, 39, 176
-// // // Example: input = 9c27b0 => output = 156, 39, 176
-// // // Example: input = #999 => output = 153, 153, 153
-// // // Example: input = 999 => output = 153, 153, 153
-// #############################
+
 const hexToRgb = input => {
   input = input + "";
   input = input.replace("#", "");
@@ -134,30 +119,6 @@ const grayColor = [
 ];
 
 
-const ntpcBlue = [
-  "#3d79bd",
-  "#4C87CA",
-  "#5094E0",
-  "#62AAFA",
-  "#ADCEF2"
-
-];
-
-const ntpcGreen = [
-  "#96c93d",
-  "#A0D83F",
-  "#A3E03A",
-  "#B3F345",
-  "#D7F0AC"
-];
-
-const ntpcOrange = [
-  "#f58320",
-  "#F78F35",
-  "#F39A4D",
-  "#F3A969",
-  "#FAC08D"
-];
 
 
 const whiteColor = "#FFF";
@@ -348,6 +309,52 @@ const roseCardHeader = {
     "linear-gradient(60deg, " + roseColor[1] + ", " + roseColor[2] + ")",
   ...roseBoxShadow
 };
+
+//NTPC Colors
+const ntpcBlue = [
+  "#3d79bd",
+  "#4C87CA",
+  "#5094E0",
+  "#62AAFA",
+  "#ADCEF2"
+];
+
+const ntpcGreen = [
+  "#96c93d",
+  "#A0D83F",
+  "#A3E03A",
+  "#B3F345",
+  "#D7F0AC"
+];
+
+const ntpcOrange = [
+  "#f58320",
+  "#F78F35",
+  "#F39A4D",
+  "#F3A969",
+  "#FAC08D"
+];
+
+const NTPCBlueCardHeader = {
+  color: whiteColor,
+  background:
+    "linear-gradient(60deg, " + ntpcBlue[3] + ", " + ntpcBlue[1] + ")",
+  ...boxShadow
+};const NTPCOrangeCardHeader = {
+  color: whiteColor,
+  background:
+    "linear-gradient(60deg, " + ntpcOrange[3] + ", " + ntpcOrange[1] + ")",
+  ...boxShadow
+};const NTPCGreenCardHeader = {
+  color: whiteColor,
+  background:
+    "linear-gradient(60deg, " + ntpcGreen[3] + ", " + ntpcGreen[1] + ")",
+  ...boxShadow
+};
+
+
+//End NTPC Colors
+
 const cardActions = {
   margin: "0 20px 10px",
   paddingTop: "10px",
@@ -550,6 +557,9 @@ export {
   ntpcGreen,
   ntpcBlue,
   ntpcOrange,
+  NTPCBlueCardHeader,
+  NTPCGreenCardHeader,
+  NTPCOrangeCardHeader,
   containerCarousel,
   containerFluidCarousel
 };

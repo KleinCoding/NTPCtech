@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 // nodejs library that concatenates classes
 import classNames from "classnames";
+
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -12,18 +15,40 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import useScrollTrigger from '@material-ui/core/useScrollTrigger';
+import Slide from '@material-ui/core/Slide';
+
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
 import Close from "@material-ui/icons/Close";
+
 // core components
 import styles from "assets/jss/material-kit-pro-react/components/headerStyle.js";
 
-import NewLogo3 from "../../../assets/img/jason/newlogo3.png";
+//Images and assets
+import NewLogo3 from "../../assets/img/jason/newlogo3.png";
 
+
+//Defines styling for Material Kit components
 const useStyles = makeStyles(styles);
 
+
+//This function hides the Navbar when the user scrolls down + re-displays when they scroll up
+function HideOnScroll(props) {
+  const { children } = props;
+  const trigger = useScrollTrigger({ target: window ? window : undefined });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+
+
 export default function Header(props) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  // const [mobileOpen, setMobileOpen] = React.useState(false);
   const classes = useStyles();
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -35,9 +60,11 @@ export default function Header(props) {
       }
     };
   });
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+
+  // const handleDrawerToggle = () => {
+  //   setMobileOpen(!mobileOpen);
+  //   console.log("handleDrawerToggle", !mobileOpen)
+  // };
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
 
@@ -58,7 +85,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, links, brand, fixed, absolute } = props;
+  const { color, links,  fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
@@ -66,10 +93,11 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   return (
+    <HideOnScroll {...props}>
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <Button className={classes.title}>
-          <Link to="/Custom"><img className ="NTPClogo" src={NewLogo3} alt="logo3" /></Link>
+          <Link to="/"><img className ="NTPClogo" src={NewLogo3} alt="logo3" /></Link>
         </Button>
        
         <Hidden smDown implementation="css" className={classes.hidden}>
@@ -79,7 +107,7 @@ export default function Header(props) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerToggle}
+            onClick={props.handleDrawerToggle}
           >
             <Menu />
           </IconButton>
@@ -89,16 +117,16 @@ export default function Header(props) {
         <Drawer
           variant="temporary"
           anchor={"right"}
-          open={mobileOpen}
+          open={props.mobileOpen}
           classes={{
             paper: classes.drawerPaper
           }}
-          onClose={handleDrawerToggle}
+          onClose={props.handleDrawerToggle}
         >
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerToggle}
+            onClick={props.handleDrawerToggle}
             className={classes.closeButtonDrawer}
           >
             <Close />
@@ -107,6 +135,7 @@ export default function Header(props) {
         </Drawer>
       </Hidden>
     </AppBar>
+    </HideOnScroll>
   );
 }
 
@@ -124,7 +153,10 @@ Header.propTypes = {
     "transparent",
     "white",
     "rose",
-    "dark"
+    "dark",
+    "NTPCBlue",
+    "NTPCGreen",
+    "NTPCOrange"
   ]),
   links: PropTypes.node,
   brand: PropTypes.string,
@@ -147,7 +179,10 @@ Header.propTypes = {
       "transparent",
       "white",
       "rose",
-      "dark"
+      "dark",
+      "NTPCBlue",
+      "NTPCGreen",
+      "NTPCOrange"
     ]).isRequired
   })
 };

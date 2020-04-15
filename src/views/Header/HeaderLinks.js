@@ -102,21 +102,14 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
+            <Link to="/" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <LineStyle className={classes.dropdownIcons} /> Presentation Page
             </Link>,
-            <Link to="/components" className={classes.dropdownLink}>
+            <Link to="/components" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <Layers className={classes.dropdownIcons} />
               All components
-            </Link>,
-            <a
-              href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial?ref=mkpr-navbar"
-              target="_blank"
-              className={classes.dropdownLink}
-            >
-              <Icon className={classes.dropdownIcons}>content_paste</Icon>
-              Documentation
-            </a>
+            </Link>
+            
           ]}
         />
       </ListItem>
@@ -132,21 +125,13 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
-              <LineStyle className={classes.dropdownIcons} /> Presentation Page
+            <Link to="/login" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
+              <LineStyle className={classes.dropdownIcons} /> Customer Login
             </Link>,
-            <Link to="/components" className={classes.dropdownLink}>
+            <Link to="/components" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <Layers className={classes.dropdownIcons} />
               All components
-            </Link>,
-            <a
-              href="https://demos.creative-tim.com/material-kit-pro-react/#/documentation/tutorial?ref=mkpr-navbar"
-              target="_blank"
-              className={classes.dropdownLink}
-            >
-              <Icon className={classes.dropdownIcons}>content_paste</Icon>
-              Documentation
-            </a>
+            </Link>
           ]}
         />
       </ListItem>
@@ -165,56 +150,56 @@ export default function HeaderLinks(props) {
             <Link
               to="/sections#headers"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "headers")}
+              onClick={props.handleDrawerToggle}
             >
               <Dns className={classes.dropdownIcons} /> Headers
             </Link>,
             <Link
               to="/sections#features"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "features")}
+              onClick={props.handleDrawerToggle}
             >
               <Build className={classes.dropdownIcons} /> Features
             </Link>,
             <Link
               to="/sections#blogs"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "blogs")}
+              onClick={props.handleDrawerToggle}
             >
               <ListIcon className={classes.dropdownIcons} /> Blogs
             </Link>,
             <Link
               to="/sections#teams"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "teams")}
+              onClick={props.handleDrawerToggle}
             >
               <People className={classes.dropdownIcons} /> Teams
             </Link>,
             <Link
               to="/sections#projects"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "projects")}
+              onClick={props.handleDrawerToggle}
             >
               <Assignment className={classes.dropdownIcons} /> Projects
             </Link>,
             <Link
               to="/sections#pricing"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "pricing")}
+              onClick={props.handleDrawerToggle}
             >
               <MonetizationOn className={classes.dropdownIcons} /> Pricing
             </Link>,
             <Link
               to="/sections#testimonials"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "testimonials")}
+              onClick={props.handleDrawerToggle}
             >
               <Chat className={classes.dropdownIcons} /> Testimonials
             </Link>,
             <Link
               to="/sections#contacts"
               className={classes.dropdownLink}
-              onClick={e => smoothScroll(e, "contacts")}
+              onClick={props.handleDrawerToggle}
             >
               <Call className={classes.dropdownIcons} /> Contacts
             </Link>
@@ -233,58 +218,35 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={ViewCarousel}
           dropdownList={[
-            <Link to="/about-us" className={classes.dropdownLink}>
+            <Link to="/about-us" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <AccountBalance className={classes.dropdownIcons} /> About Us
             </Link>,
-            <Link to="/blog-post" className={classes.dropdownLink}>
+            <Link to="/blog-post" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <ArtTrack className={classes.dropdownIcons} /> Blog Post
             </Link>,
-            <Link to="/blog-posts" className={classes.dropdownLink}>
+            <Link to="/blog-posts" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <ViewQuilt className={classes.dropdownIcons} /> Blog Posts
             </Link>,
-            <Link to="/contact-us" className={classes.dropdownLink}>
+            <Link to="/contact-us" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <LocationOn className={classes.dropdownIcons} /> Contact Us
             </Link>,
-            <Link to="/landing-page" className={classes.dropdownLink}>
+            <Link to="/landing-page" className={classes.dropdownLink} onClick={props.handleDrawerToggle}>
               <ViewDay className={classes.dropdownIcons} /> Landing Page
             </Link>,
-            <Link to="/login-page" className={classes.dropdownLink}>
-              <Fingerprint className={classes.dropdownIcons} /> Login Page
-            </Link>,
-            <Link to="/pricing" className={classes.dropdownLink}>
-              <AttachMoney className={classes.dropdownIcons} /> Pricing Page
-            </Link>,
-            <Link to="/shopping-cart-page" className={classes.dropdownLink}>
-              <ShoppingBasket className={classes.dropdownIcons} /> Shopping Cart
-            </Link>,
-            <Link to="/ecommerce-page" className={classes.dropdownLink}>
-              <Store className={classes.dropdownIcons} /> Ecommerce Page
-            </Link>,
-            <Link to="/product-page" className={classes.dropdownLink}>
-              <ShoppingCart className={classes.dropdownIcons} /> Product Page
-            </Link>,
-            <Link to="/profile-page" className={classes.dropdownLink}>
-              <AccountCircle className={classes.dropdownIcons} /> Profile Page
-            </Link>,
-            <Link to="/signup-page" className={classes.dropdownLink}>
-              <PersonAdd className={classes.dropdownIcons} /> Signup Page
-            </Link>,
-            <Link to="/error-page" className={classes.dropdownLink}>
-              <Error className={classes.dropdownIcons} /> Error Page
-            </Link>
           ]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>
+         <Link to="/">
         <Button
-          href="https://www.creative-tim.com/product/material-kit-pro-react?ref=mkpr-navbar"
           color={window.innerWidth < 960 ? "info" : "white"}
           target="_blank"
           className={classes.navButton}
           round
         >
+         
            Contact Us
-        </Button>
+        </Button></Link>
       </ListItem>
     </List>
   );

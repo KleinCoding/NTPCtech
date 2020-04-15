@@ -6,8 +6,17 @@ import {
   primaryCardHeader,
   roseCardHeader,
   blackColor,
+  NTPCGreenCardHeader,
+  NTPCBlueCardHeader,
+  NTPCOrangeCardHeader,
+  ntpcBlue,
+  ntpcOrange,
+  ntpcGreen,
   hexToRgb
 } from "assets/jss/material-kit-pro-react.js";
+
+
+//Custom NTPC Colors imported from Material Kit Pro's CSS-in-JS 
 
 const cardHeaderStyle = {
   cardHeader: {
@@ -71,7 +80,13 @@ const cardHeaderStyle = {
   dangerCardHeader,
   infoCardHeader,
   primaryCardHeader,
-  roseCardHeader
+  roseCardHeader,
+  ntpcBlue,
+  ntpcOrange,
+  ntpcGreen,
+  NTPCBlueCardHeader,
+  NTPCGreenCardHeader,
+  NTPCOrangeCardHeader,
 };
 
 export default cardHeaderStyle;

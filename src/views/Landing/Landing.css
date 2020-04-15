@@ -9,3 +9,10 @@
   margin-right: auto;
   width: 40%;
 }
+
+@media screen and (max-width: 600px) {
+  #cd-vertical-nav{
+  display: none;
+  }
+}
+

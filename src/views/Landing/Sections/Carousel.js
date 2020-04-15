@@ -3,22 +3,23 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 
-import Carousel from "react-slick";
+
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
 // core components
+
+import Carousel from "react-slick";
+
+//Material Kit Pro imports
 import Button from "components/CustomButtons/Button.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-
-
-
 import headersStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/headersStyle.js";
 
+//Assets/Images
 import frontcounter from "assets/img/jason/frontcounter.jpg"
-import serverroom from "assets/img/jason/serverroom.jpg"
 import womanglass from "assets/img/jason/womanglass.jpg"
 import welikeyou from "assets/img/jason/welikeyou.jpg"
 
@@ -53,7 +54,7 @@ export default function SectionHeader({ ...rest }) {
                   <GridItem xs={12} sm={6} md={6}>
                     <h1 className={classes.title}>Quick Service IT Solutions</h1>
                     <br />
-                    <Button color="logoOrange" size="lg">
+                    <Button color="NTPCOrange" size="lg">
                       See Our Services
                     </Button>
                   </GridItem>
@@ -128,7 +129,7 @@ export default function SectionHeader({ ...rest }) {
                     </h4>
                     <br />
                     <div>
-                      <Button color="logoOrange" size="lg">
+                      <Button color="NTPCOrange" size="lg">
                         Contact Us
                       </Button>
                     </div>

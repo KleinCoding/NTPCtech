@@ -64,7 +64,14 @@ Card.propTypes = {
     "success",
     "warning",
     "danger",
-    "rose"
+    "rose",
+    "NTPCBlue",
+    "NTPCOrange",
+    "NTPCGreen",
+    "NTPCGreenCardHeader",
+    "NTPCBlueCardHeader",
+    "NTPCOrangeCardHeader"
+
   ]),
   product: PropTypes.bool,
   children: PropTypes.node

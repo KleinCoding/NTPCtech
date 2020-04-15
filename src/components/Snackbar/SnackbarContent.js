@@ -48,13 +48,11 @@ export default function SnackbarContent(props) {
   }
   const [alert, setAlert] = React.useState(
     <Snack
-      message={
-        <div>
-          {snackIcon}
-          {message}
-          {close !== undefined ? action : null}
-        </div>
-      }
+    open={false}
+    autoHideDuration={2000}
+    onClose={closeAlert}
+    message={ <span>"ahhhhhh"</span>}
+    anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       classes={{
         root: classes.root + " " + classes[color],
         message: classes.message + " " + classes.container
