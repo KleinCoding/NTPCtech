@@ -11,6 +11,8 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
+import Button from "components/CustomButtons/Button.js";
 
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
@@ -21,8 +23,7 @@ import Layers from "@material-ui/icons/Layers";
 import LineStyle from "@material-ui/icons/LineStyle";
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
+
 
 //Style definitions
 import styles from "assets/jss/material-kit-pro-react/components/headerLinksStyle.js";
@@ -198,7 +199,8 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="#contact-footer-container"
+          // href="#contact-footer-container"
+          onClick={props.swapContactModal}
           color="white"
           target="_blank"
           className={classes.navButton}
@@ -208,6 +210,9 @@ export default function HeaderLinks(props) {
         </Button>
       </ListItem>
     </List>
+  
+  
+  
   );
 }
 

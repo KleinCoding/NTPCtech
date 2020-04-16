@@ -26,7 +26,8 @@ import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 
 //Assets/Images
-import city from "assets/img/examples/city.jpg";
+import skyline2 from "assets/img/jason/hires/skyline2.jpg";
+import landingLogo from "../../assets/img/jason/newlogo3.png"
 
 //Variable definitions
 const useStyles = makeStyles(contactsStyle);
@@ -37,16 +38,16 @@ function Alert(props) {
 }
 
 export default function SectionContacts(props, { ...rest }) {
-  const [checked, setChecked] = React.useState([]);
-  const handleToggle = (value) => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
+  const [checkedModal, setCheckedModal] = React.useState([]);
+  const handleToggleModal = (value) => {
+    const currentIndex = checkedModal.indexOf(value);
+    const newCheckedModal = [...checkedModal];
     if (currentIndex === -1) {
-      newChecked.push(value);
+      newCheckedModal.push(value);
     } else {
-      newChecked.splice(currentIndex, 1);
+      newCheckedModal.splice(currentIndex, 1);
     }
-    setChecked(newChecked);
+    setCheckedModal(newCheckedModal);
   };
   const classes = useStyles();
 
@@ -55,65 +56,64 @@ export default function SectionContacts(props, { ...rest }) {
   const { message, handleSubmit } = useForm();
   const onSubmit = () => handleFormSubmit();
   const handleFormSubmit = () => {
-    const messageData = {
-      firstName: document.getElementById("firstNameForm").value,
-      lastName: document.getElementById("lastNameForm").value,
-      email: document.getElementById("emailMessageForm").value,
-      message: document.getElementById("messageForm").value,
+    const messageDataModal = {
+      firstName: document.getElementById("firstNameFormModal").value,
+      lastName: document.getElementById("lastNameFormModal").value,
+      email: document.getElementById("emailMessageFormModal").value,
+      message: document.getElementById("messageFormModal").value,
     };
     if (
-      checked.length === 1 &&
-      messageData.firstName !== "" &&
-      messageData.lastName !== "" &&
-      messageData.email !== "" &&
-      messageData.message !== ""
+      checkedModal.length === 1 &&
+      messageDataModal.firstName !== "" &&
+      messageDataModal.lastName !== "" &&
+      messageDataModal.email !== "" &&
+      messageDataModal.message !== ""
     ) {
       //Add code here to submit messageData to your backend.
-      console.log("submitting user message", messageData);
+      console.log("submitting user message from Modal", messageDataModal);
       alertOpen(
         "Thank you! We will return your message as soon as possible.",
         "success",
         3500
       );
-      setDisableInputs(true)
-      console.log("submitting user message", messageData);
-    } else if (messageData.firstName === "") {
+      setDisableInputsModal(true)
+    } else if (messageDataModal.firstName === "") {
       alertOpen(
         "Please check the input fields and try again.",
         "warning",
         2000
       );
-    } else if (messageData.lastName === "") {
+    } else if (messageDataModal.lastName === "") {
       alertOpen(
         "Please check the input fields and try again.",
         "warning",
         2000
       );
-    } else if (messageData.email === "") {
+    } else if (messageDataModal.email === "") {
       alertOpen(
         "Please check the input fields and try again.",
         "warning",
         2000
       );
-    } else if (messageData.message === "") {
+    } else if (messageDataModal.message === "") {
       alertOpen(
         "Please check the input fields and try again.",
         "warning",
         2000
       );
-    } else if (checked.length !== 1) {
+    } else if (checkedModal.length !== 1) {
       alertOpen("Please click the checkbox and try again.", "warning", 2000);
     }
   };
  //This disables input fields to prevent multiple use cases/scrapers after successful submission
-  const [disableInputs, setDisableInputs] = useState(false);
+  const [disableInputsModal, setDisableInputsModal] = useState(false);
 
   //These are for the notifications on message errors
   //To add additional toast alerts, use the function alertOpen()
   //Ex: alertOpen("message wanted", "severity wanted", "duration wanted")
   //Severity choices: Success(green), Info (blue), Warning(orange), Error(red)
   //Duration must be in milliseconds
-  //If duration is not supplied, notification will remain open until user closes manually
+  //If duration is not supplied, notification will remain open until user closes manually/clicks away
   const [alertState, setAlertState] = useState({
     open: false,
     message: "",
@@ -141,17 +141,20 @@ export default function SectionContacts(props, { ...rest }) {
 
  
   return (
-    <div className="cd-section" {...rest} id="contact-footer-container">
+    <div className="cd-section" {...rest} id="contact-modal-container">
       <div
         className={classes.contacts + " " + classes.section}
-        style={{ backgroundImage: `url(${city})` }}
+        style={{ backgroundImage: `url(${skyline2})` }}
       >
         <div className={classes.container}>
           <GridContainer>
             <GridItem xs={12} sm={5} md={5}>
-              <h2 className={classes.title}>Get in Touch</h2>
+              {/* <h2 className={classes.title}>Insert Title Here and uncomment out</h2> */}
+              <div id= "contactModalLogo">
+            <img src= {landingLogo} alt="logo" style={{textAlign: "center"}}/>
+            </div>
               <h5 className={classes.description}>
-                In need of our services? Reach out!
+                Let us know what we can do for you and your business. Reach out today!
               </h5>
               <InfoArea
                 className={classes.infoArea}
@@ -182,8 +185,8 @@ export default function SectionContacts(props, { ...rest }) {
             <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
               <Card className={classes.card1}>
                 <form
-                  className="message-form"
-                  id="message-fields"
+                  className="message-form-modal"
+                  id="message-fields-modal"
                   onSubmit={handleSubmit(onSubmit)}
                 >
                   <CardHeader
@@ -198,9 +201,9 @@ export default function SectionContacts(props, { ...rest }) {
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
                           labelText="First Name"
-                          id="firstNameForm"
-                          success= {disableInputs}
-                          inputProps={{ disabled: disableInputs }}
+                          id="firstNameFormModal"
+                          success= {disableInputsModal}
+                          inputProps={{ disabled: disableInputsModal }}
                           formControlProps={{
                             fullWidth: true,
                           }}
@@ -209,9 +212,9 @@ export default function SectionContacts(props, { ...rest }) {
                       <GridItem xs={12} sm={6} md={6}>
                         <CustomInput
                           labelText="Last Name"
-                          id="lastNameForm"
-                          success= {disableInputs}
-                          inputProps={{ disabled: disableInputs }}
+                          id="lastNameFormModal"
+                          success= {disableInputsModal}
+                          inputProps={{ disabled: disableInputsModal }}
                           formControlProps={{
                             fullWidth: true,
                           }}
@@ -220,22 +223,22 @@ export default function SectionContacts(props, { ...rest }) {
                     </GridContainer>
                     <CustomInput
                       labelText="Email Address"
-                      id="emailMessageForm"
-                      success= {disableInputs}
-                      inputProps={{ disabled: disableInputs }}
+                      id="emailMessageFormModal"
+                      success= {disableInputsModal}
+                      inputProps={{ disabled: disableInputsModal }}
                       formControlProps={{
                         fullWidth: true,
                       }}
                     />
                     <CustomInput
                       labelText="Your Message"
-                      id="messageForm"
+                      id="messageFormModal"
                       formControlProps={{
                         fullWidth: true,
                       }}
-                      success= {disableInputs}
+                      success= {disableInputsModal}
                       inputProps={{
-                        disabled: disableInputs,
+                        disabled: disableInputsModal,
                         multiline: true,
                         rows: 5,
                       }}
@@ -245,9 +248,9 @@ export default function SectionContacts(props, { ...rest }) {
                     <FormControlLabel
                       control={
                         <Checkbox
-                          inputProps={{ disabled: disableInputs }}
+                          inputProps={{ disabled: disableInputsModal }}
                           tabIndex={-1}
-                          onClick={() => handleToggle(1)}
+                          onClick={() => handleToggleModal(1)}
                           checkedIcon={
                             <Check className={classes.checkedIcon} />
                           }
@@ -262,7 +265,7 @@ export default function SectionContacts(props, { ...rest }) {
                       label="I'm not a robot"
                     />
                     <Button
-                      disabled = {disableInputs}
+                    disabled={disableInputsModal}
                       color="NTPCBlue"
                       className={classes.pullRight}
                       type="submit"
@@ -276,6 +279,7 @@ export default function SectionContacts(props, { ...rest }) {
           </GridContainer>
         </div>
       </div>
+
       {/* This is the toast popup for message submission errors */}
       <Snackbar
         autoHideDuration={alertState.duration}
