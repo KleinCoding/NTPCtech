@@ -16,9 +16,9 @@ import GridItem from "components/Grid/GridItem.js";
 import headersStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/headersStyle.js";
 
 //Assets/Images
-import frontcounter from "assets/img/jason/frontcounter.jpg"
-import womanglass from "assets/img/jason/womanglass.jpg"
-import welikeyou from "assets/img/jason/welikeyou.jpg"
+import frontcounter from "assets/img/jason/frontcounter.jpg";
+import womanglass from "assets/img/jason/womanglass.jpg";
+import welikeyou from "assets/img/jason/welikeyou.jpg";
 
 const useStyles = makeStyles(headersStyle);
 
@@ -31,10 +31,9 @@ export default function SectionHeader({ ...rest }) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-  
   };
   return (
-     <div className="cd-section" {...rest} >
+    <div className="cd-section" {...rest}>
       <div className={classes.sectionBlank} id="blanksection" />
       <div>
         <Carousel {...settings}>
@@ -47,7 +46,9 @@ export default function SectionHeader({ ...rest }) {
               <div className={classes.containerCarousel}>
                 <GridContainer>
                   <GridItem xs={12} sm={6} md={6}>
-                    <h1 className={classes.title}>Quick Service IT Solutions</h1>
+                    <h1 className={classes.title}>
+                      Quick Service IT Solutions
+                    </h1>
                     <br />
                     <Button color="NTPCOrange" size="lg">
                       See Our Services
@@ -77,24 +78,45 @@ export default function SectionHeader({ ...rest }) {
                   >
                     <h1 className={classes.title}>Connect With Us</h1>
                     <h4>
-                     Keep up with what NTPC Solutions is doing to stay ahead of the game by following us on your favorite social media service or by following our blog.
+                      Keep up with what NTPC Solutions is doing to stay ahead of
+                      the game by following us on your favorite social media
+                      service or by following our blog.
                     </h4>
                     <br />
                     <h6>Connect with us on:</h6>'
-                  
                     <div>
-                                 {/* Social Media icons on carousel, add HREF for link */}
-                      <Button color="white" simple size="lg" justIcon>
+                      <Button
+                        color="white"
+                        simple
+                        size="lg"
+                        href="https://twitter.com/NTPCTechSol?s=09" 
+                        target="_blank"
+                        rel="noreferrer"
+                        justIcon
+                      >
                         <i className="fab fa-twitter" />
                       </Button>
-                      <Button color="white" simple size="lg" justIcon>
+                      <Button
+                        color="white"
+                        simple
+                        size="lg"
+                        href="https://facebook.com/ntpctechsolutions"
+                        target="_blank"
+                        rel="noreferrer"
+                        justIcon
+                      >
                         <i className="fab fa-facebook-square" />
                       </Button>
-                      <Button color="white" simple size="lg" justIcon>
-                        <i className="fab fa-google-plus-g" />
-                      </Button>
-                      <Button color="white" simple size="lg" justIcon>
-                        <i className="fab fa-instagram" />
+                      <Button
+                        color="white"
+                        simple
+                        size="lg"
+                        href="https://www.linkedin.com/company/ntpctech"
+                        target="_blank"
+                        rel="noreferrer"
+                        justIcon
+                      >
+                        <i className="fab fa-linkedin" />
                       </Button>
                     </div>
                   </GridItem>
@@ -117,9 +139,7 @@ export default function SectionHeader({ ...rest }) {
                     className={classNames(classes.mlAuto, classes.textRight)}
                   >
                     <h1 className={classes.title}>Personal Client Support</h1>
-                    <h4>
-                    Direct contact with support when you need it
-                    </h4>
+                    <h4>Direct contact with support when you need it</h4>
                     <br />
                     <div>
                       <Button color="NTPCOrange" size="lg">

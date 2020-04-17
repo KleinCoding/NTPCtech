@@ -15,7 +15,10 @@ import {
   blackColor,
   whiteColor,
   grayColor,
-  hexToRgb
+  hexToRgb,
+  ntpcBlue,
+  ntpcOrange,
+  ntpcGreen
 } from "assets/jss/material-kit-pro-react.js";
 
 const customDropdownStyle = theme => ({
@@ -114,6 +117,27 @@ const customDropdownStyle = theme => ({
     whiteSpace: "nowrap",
     minHeight: "unset"
   },
+
+  NTPCBlueHover: {
+    "&:hover": {
+      backgroundColor: ntpcBlue[0],
+      color: whiteColor,
+      ...primaryBoxShadow
+    }
+  },  NTPCGreenHover: {
+    "&:hover": {
+      backgroundColor: ntpcGreen[0],
+      color: whiteColor,
+      ...primaryBoxShadow
+    }
+  },  NTPCOrangeHover: {
+    "&:hover": {
+      backgroundColor: ntpcOrange[0],
+      color: whiteColor,
+      ...primaryBoxShadow
+    }
+  },
+
   darkHover: {
     "&:hover": {
       boxShadow:

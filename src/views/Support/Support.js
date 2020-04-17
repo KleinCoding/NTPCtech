@@ -19,7 +19,7 @@ const useStyles = makeStyles(sectionsPageStyle);
 
 
 
-export default function AboutPage(props) {
+export default function SupportPage(props) {
   //Hook for Material Kit Pro classes and styles
   const classes = useStyles();
 

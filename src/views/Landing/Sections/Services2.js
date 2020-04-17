@@ -4,8 +4,8 @@ import React, { useMemo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import Code from "@material-ui/icons/Code";
-import Timeline from "@material-ui/icons/Timeline";
+import NetworkCheck from "@material-ui/icons/NetworkCheck";
+import FindReplace from "@material-ui/icons/FindReplace";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -72,19 +72,19 @@ export default function SectionServices(props, { ...rest }) {
                   className={classes.info4}
                   title="Networking"
                   description="Does your office need a full-service network? "
-                  icon={Timeline}
-                  iconColor="rose"
+                  icon={NetworkCheck}
+                  iconColor="NTPCOrange"
                 />
                 <InfoArea
                   className={classes.info4}
                   title="Maintenance and Upkeep"
                   description="Looking for someone to monitor and maintain computers on your network?"
-                  icon={Code}
-                  iconColor="success"
+                  icon={FindReplace}
+                  iconColor="NTPCOrange"
                 />
               </div>
             </GridItem>
-            {/* //This "GridItem" will be hidden by media queries on mobile screens */}
+            {/* //This "GridItem" will be hidden by media queries on mobile screens to correct layout*/}
             <GridItem
               xs={12}
               sm={5}

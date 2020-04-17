@@ -7,7 +7,10 @@ import {
   twitterColor,
   dribbbleColor,
   instagramColor,
-  hexToRgb
+  hexToRgb,
+  ntpcBlue,
+  ntpcGreen,
+  ntpcOrange
 } from "assets/jss/material-kit-pro-react.js";
 
 const footerStyle = {
@@ -24,10 +27,10 @@ const footerStyle = {
     float: "right!important",
     "& ul": {
       marginBottom: 0,
-      marginTop: 10,
+      marginTop: 0,
       padding: 0,
       listStyle: "none",
-      height: 38,
+      height: 0,
       "& li": {
         display: "inline-block"
       }
@@ -99,6 +102,109 @@ const footerStyle = {
       color: whiteColor
     }
   },
+
+  //NTPC Color Style Definitions
+
+  NTPCOrange: {
+    background:
+      "radial-gradient(ellipse at center," +
+      ntpcOrange[3] +
+      " 0," +
+      ntpcOrange[1] +
+      " 100%)",
+    backgroundSize: "550% 450%",
+    color: whiteColor,
+    "& p": {
+      color: grayColor[0]
+    },
+    "& i": {
+      color: whiteColor
+    },
+    "& a": {
+      color: whiteColor,
+      opacity: ".86",
+      "&:visited": {
+        color: whiteColor
+      },
+      "&:focus, &:hover": {
+        opacity: 1
+      }
+    },
+    "& hr": {
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.2)"
+    },
+    "& $btnTwitter, & $btnDribbble, & $btnInstagram": {
+      color: whiteColor
+    }
+  },
+
+  NTPCBlue: {
+    background:
+      "radial-gradient(ellipse at center," +
+      ntpcBlue[3] +
+      " 0," +
+      ntpcBlue[1] +
+      " 100%)",
+    backgroundSize: "550% 450%",
+    color: whiteColor,
+    "& p": {
+      color: whiteColor
+    },
+    "& i": {
+      color: whiteColor
+    },
+    "& a": {
+      color: whiteColor,
+      opacity: ".86",
+      "&:visited": {
+        color: whiteColor
+      },
+      "&:focus, &:hover": {
+        opacity: 1
+      }
+    },
+    "& hr": {
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.2)"
+    },
+    "& $btnTwitter, & $btnDribbble, & $btnInstagram": {
+      color: whiteColor
+    }
+  },
+  NTPCGreen: {
+    background:
+      "radial-gradient(ellipse at center," +
+      ntpcGreen[3] +
+      " 0," +
+      ntpcGreen[1] +
+      " 100%)",
+    backgroundSize: "550% 450%",
+    color: whiteColor,
+    "& p": {
+      color: grayColor[0]
+    },
+    "& i": {
+      color: whiteColor
+    },
+    "& a": {
+      color: whiteColor,
+      opacity: ".86",
+      "&:visited": {
+        color: whiteColor
+      },
+      "&:focus, &:hover": {
+        opacity: 1
+      }
+    },
+    "& hr": {
+      borderColor: "rgba(" + hexToRgb(whiteColor) + ",0.2)"
+    },
+    "& $btnTwitter, & $btnDribbble, & $btnInstagram": {
+      color: whiteColor
+    }
+  },
+
+
+  //END NTPC COLORS
   white: {
     backgroundColor: whiteColor,
     color: grayColor[1],

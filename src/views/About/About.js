@@ -5,7 +5,6 @@ import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import sectionsPageStyle from "assets/jss/material-kit-pro-react/views/sectionsPageStyle.js";
 
-// @material-ui/icons
 
 // CSS
 import "./About.css";

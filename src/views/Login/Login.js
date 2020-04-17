@@ -33,7 +33,7 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-export default function SectionsPage(props) {
+export default function LoginPage(props) {
   //Hook for Material Kit Pro classes and styles
   const classes = useStyles();
 
@@ -65,14 +65,22 @@ export default function SectionsPage(props) {
       loginUserData.password !== ""
     ) {
       //Add logic here to submit loginUserData to your backend.
-      //Add logic to receive login confirmation from back-end 
+      //Add logic to receive login confirmation from back-end
       console.log("logging in user", loginUserData.username);
-      alertOpen("Success! Logging you in...", "success", 3500)
+      alertOpen("Success! Logging you in...", "success", 3500);
       // setLoginSuccess(true)
     } else if (loginUserData.username === "") {
-      alertOpen("Please check your username/password and try again.", "warning", 2000);
+      alertOpen(
+        "Please check your username/password and try again.",
+        "warning",
+        2000
+      );
     } else if (loginUserData.password === "") {
-      alertOpen("Please check your username/password and try again.", "warning", 2000);
+      alertOpen(
+        "Please check your username/password and try again.",
+        "warning",
+        2000
+      );
     } else if (checked.length !== 1) {
       alertOpen("Please click the checkbox and try again.", "warning", 2000);
     }
@@ -83,17 +91,17 @@ export default function SectionsPage(props) {
   // eslint-disable-next-line
   const [loginSuccess, setLoginSuccess] = useState(false);
 
- //These are for the notifications on message errors
+  //These are for the notifications on message errors
   //To add additional toast alerts, use the function alertOpen()
   //Ex: alertOpen("message wanted", "severity wanted", "duration wanted")
-  //Severity choices: Success(green), Info (blue), Warning(orange), Error(red)
+  //Severity choices: Success(green), Info(blue), Warning(orange), Error(red)
   //Duration must be in milliseconds
   //If duration is not supplied, notification will remain open until user closes manually
   const [alertState, setAlertState] = useState({
     open: false,
     message: "",
     severity: "warning",
-    duration: 2000
+    duration: 2000,
   });
 
   const alertOpen = (text, sev, dur) => {
@@ -102,7 +110,7 @@ export default function SectionsPage(props) {
       open: true,
       message: text,
       severity: sev,
-      duration: dur
+      duration: dur,
     });
   };
 
@@ -112,123 +120,102 @@ export default function SectionsPage(props) {
       open: false,
       message: "",
     });
-    if (loginSuccess === true){
+    if (loginSuccess === true) {
       props.history.push("/");
     }
   };
 
- 
-
   return (
-    
-      <Fragment>
-        <div
-          id="login-container"
-          className={classes.main}
-          // style={{ backgroundSize: "100%", backgroundImage: `url(${BKGUrl})` }}
-        >
-        
-           
-              <GridContainer id = "login-inputs">
-                <GridItem
-                  xs={12}
-                  sm={5}
-                  md={5}
-                  className={classes.mlAuto}
-                  class="ld ld-zoom-in"
-                  style={{ animationDuration: `1s` }}
-                >
-                  <Card className={classes.card1}>
-                    <form
-                      className="account-form"
-                      onSubmit={handleSubmit(onSubmit)}
-                    >
-                      <CardHeader
-                        contact
-                        color="NTPCBlue"
-                        className={classes.textCenter}
-                      >
-                        <h4 className={classes.cardTitle}>Customer Login</h4>
-                      </CardHeader>
-                      <CardBody>
-                        <CustomInput
-                          labelText="Email Address"
-                          id="emailForm"
-                          formControlProps={{
-                            fullWidth: true,
-                          }}
-                        />
-                        <CustomInput
-                          labelText="Password"
-                          id="passwordForm"
-                          formControlProps={{
-                            fullWidth: true
-                          }}
-                          inputProps={{
-                            type: "password"
-                          }}
-                        />
-                      </CardBody>
-                      <CardFooter className={classes.justifyContentBetween}>
-                        <FormControlLabel
-                          control={
-                            <Checkbox
-                              tabIndex={-1}
-                              onClick={() => handleToggle(1)}
-                              checkedIcon={
-                                <Check className={classes.checkedIcon} />
-                              }
-                              icon={<Check className={classes.uncheckedIcon} />}
-                              classes={{
-                                checked: classes.checked,
-                                root: classes.checkRoot,
-                              }}
-                            />
-                          }
-                          classes={{ label: classes.label }}
-                          label="I'm not a robot"
-                        />
-                        <Button
-                          color="NTPCBlue"
-                          className={classes.pullRight}
-                          type="submit"
-                        >
-                          Login
-                        </Button>
-                      </CardFooter>
-                    </form>
-                  </Card>
-                </GridItem>
-              </GridContainer>
-            </div>
-         
-        
-
-        <div>
-          {/* This is the toast popup for login notifications */}
-          <Snackbar
-            autoHideDuration={alertState.duration}
-            anchorOrigin={{ vertical: "top", horizontal: "center" }}
-            open={alertState.open}
-            onClose={alertClose}
+    <Fragment>
+      <div id="login-container" className={classes.main}>
+        <GridContainer id="login-inputs">
+          <GridItem
+            xs={12}
+            sm={5}
+            md={5}
+            className={classes.mlAuto}
+            class="ld ld-zoom-in"
+            style={{ animationDuration: `1s` }}
           >
-            <Alert
-              severity={alertState.severity}
-              action={
-                <IconButton
-                  aria-label="close"
-                  size="small"
-                  onClick={alertClose}
+            <Card className={classes.card1}>
+              <form className="account-form" onSubmit={handleSubmit(onSubmit)}>
+                <CardHeader
+                  contact
+                  color="NTPCBlue"
+                  className={classes.textCenter}
                 >
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              }
-            >
-              {alertState.message}
-            </Alert>
-          </Snackbar>
-        </div>
-      </Fragment>
-    
+                  <h4 className={classes.cardTitle}>Customer Login</h4>
+                </CardHeader>
+                <CardBody>
+                  <CustomInput
+                    labelText="Email Address"
+                    id="emailForm"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                  />
+                  <CustomInput
+                    labelText="Password"
+                    id="passwordForm"
+                    formControlProps={{
+                      fullWidth: true,
+                    }}
+                    inputProps={{
+                      type: "password",
+                    }}
+                  />
+                </CardBody>
+                <CardFooter className={classes.justifyContentBetween}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        tabIndex={-1}
+                        onClick={() => handleToggle(1)}
+                        checkedIcon={<Check className={classes.checkedIcon} />}
+                        icon={<Check className={classes.uncheckedIcon} />}
+                        classes={{
+                          checked: classes.checked,
+                          root: classes.checkRoot,
+                        }}
+                      />
+                    }
+                    classes={{ label: classes.label }}
+                    label="I'm not a robot"
+                  />
+                  <Button
+                    color="NTPCBlue"
+                    className={classes.pullRight}
+                    type="submit"
+                  >
+                    Login
+                  </Button>
+                </CardFooter>
+              </form>
+            </Card>
+          </GridItem>
+        </GridContainer>
+      </div>
+
+      <div>
+        {/* This is the toast popup for login notifications */}
+        <Snackbar
+          autoHideDuration={alertState.duration}
+          anchorOrigin={{ vertical: "top", horizontal: "center" }}
+          open={alertState.open}
+          onClose={alertClose}
+        >
+          <Alert
+            severity={alertState.severity}
+            action={
+              <IconButton aria-label="close" size="small" onClick={alertClose}>
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+          >
+            {alertState.message}
+          </Alert>
+        </Snackbar>
+      </div>
+    </Fragment>
   );
 }

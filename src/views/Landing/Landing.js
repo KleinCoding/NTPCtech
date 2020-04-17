@@ -7,26 +7,24 @@ import { makeStyles } from "@material-ui/core/styles";
 import sectionsPageStyle from "assets/jss/material-kit-pro-react/views/sectionsPageStyle.js";
 
 // section components
-import SectionCarousel from "./Sections/Carousel"
-import SectionServices from "./Sections/Services"
-import SectionServices2 from "./Sections/Services2"
-import SectionServices4 from "./Sections/Services4"
+import SectionCarousel from "./Sections/Carousel";
+import SectionServices from "./Sections/Services";
+import SectionServices2 from "./Sections/Services2";
+import SectionServices4 from "./Sections/Services4";
 
 //Custom hook for scroll position handling
-import { useScrollPosition } from '@n8tb1t/use-scroll-position'
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-// CSS 
-import "./Landing.css"
+// CSS
+import "./Landing.css";
 
 //Assets, Images, Backgrounds
-import landingLogo from '../../assets/img/jason/NTPClogoblack.png';
-
+import landingLogo from "../../assets/img/jason/NTPClogoblack.png";
 
 //Variable definitions
 const useStyles = makeStyles(sectionsPageStyle);
 
 export default function SectionsPage() {
-
   //These three functions are for the smooth auto scroll feature of the navigation dots on the landing page
   const easeInOutQuad = (t, b, c, d) => {
     t /= d / 2;
@@ -34,8 +32,8 @@ export default function SectionsPage() {
     t--;
     return (-c / 2) * (t * (t - 2) - 1) + b;
   };
-  
-  const smoothScroll = target => {
+
+  const smoothScroll = (target) => {
     var targetScroll = document.getElementById(target);
     scrollGo(document.documentElement, targetScroll.offsetTop, 1250);
   };
@@ -60,14 +58,12 @@ export default function SectionsPage() {
   //Hook for Material Kit Pro classes and styles
   const classes = useStyles();
 
-
-//State for transition animations for services/contact sections
-// eslint-disable-next-line
-  const [hideOnScroll, setHideOnScroll] = useState(false)
-  const [servicePlayState, setServicePlayState] = useState("paused")
-  const [servicePlayState2, setServicePlayState2] = useState("paused")
-  const [servicePlayState3, setServicePlayState3] = useState("paused")
-  
+  //State for transition animations for services/contact sections
+  // eslint-disable-next-line
+  const [hideOnScroll, setHideOnScroll] = useState(false);
+  const [servicePlayState, setServicePlayState] = useState("paused");
+  const [servicePlayState2, setServicePlayState2] = useState("paused");
+  const [servicePlayState3, setServicePlayState3] = useState("paused");
 
   //Hook to detect user's scroll position & activate animations on scroll
   useScrollPosition(
@@ -75,47 +71,35 @@ export default function SectionsPage() {
       const isMobile = navigator.userAgent.match(
         /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
       );
-      const isShow = currPos.y 
+      const isShow = currPos.y;
       //These are the scroll position definitions for DESKTOP users
-      if (isShow  >= 350 && isMobile === null ) setServicePlayState("running")
-      if (isShow  >= 800 && isMobile === null) setServicePlayState2("running")
-      if (isShow  >= 1300 && isMobile === null) setServicePlayState3("running")
+      if (isShow >= 350 && isMobile === null) setServicePlayState("running");
+      if (isShow >= 800 && isMobile === null) setServicePlayState2("running");
+      if (isShow >= 1300 && isMobile === null) setServicePlayState3("running");
       //These are the scroll position definitions for MOBILE users
-      if (isShow  >= 500 && isMobile !== null ) setServicePlayState("running")
-      if (isShow  >= 1200 && isMobile !== null) setServicePlayState2("running")
-      if (isShow  >= 1800 && isMobile !== null) setServicePlayState3("running")
+      if (isShow >= 500 && isMobile !== null) setServicePlayState("running");
+      if (isShow >= 1200 && isMobile !== null) setServicePlayState2("running");
+      if (isShow >= 1800 && isMobile !== null) setServicePlayState3("running");
     },
     [hideOnScroll],
     false,
     true,
     300
-  )
- 
-
-
+  );
 
   return (
-   
-        <Fragment>
- 
-{/* Landing Page Sections */}
-
-      <div id= "landing-container" className={classes.main}
-      //  style={{ backgroundSize: '100%', backgroundImage: `url(${BKGUrl})`}}
-       >
+    <Fragment>
+      <div id="landing-container" className={classes.main}>
         <SectionCarousel id="carousel" />
-        <div className= "landingLogo">
-            <img src= {landingLogo} alt="logo" style={{textAlign: "center"}}/>
-            </div>
+        <div className="landingLogo">
+          <img src={landingLogo} alt="logo" style={{ textAlign: "center" }} />
+        </div>
         <SectionServices id="services" servicePlayState={servicePlayState} />
         <SectionServices2 id="services1" servicePlayState={servicePlayState2} />
         <SectionServices4 id="services2" servicePlayState={servicePlayState3} />
-      
-        </div>
+      </div>
 
-
-
-{/* Vertical Nav Dots */}
+      {/* Vertical Nav Dots */}
       <nav id="cd-vertical-nav">
         <ul>
           <li>
@@ -123,7 +107,7 @@ export default function SectionsPage() {
               href="#carousel"
               data-number="1"
               className=""
-              onClick={e => {
+              onClick={(e) => {
                 var isMobile = navigator.userAgent.match(
                   /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
                 );
@@ -144,7 +128,7 @@ export default function SectionsPage() {
               href="#services"
               data-number="2"
               className=""
-              onClick={e => {
+              onClick={(e) => {
                 var isMobile = navigator.userAgent.match(
                   /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
                 );
@@ -165,7 +149,7 @@ export default function SectionsPage() {
               href="#contacts"
               data-number="3"
               className=""
-              onClick={e => {
+              onClick={(e) => {
                 var isMobile = navigator.userAgent.match(
                   /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
                 );
@@ -181,10 +165,8 @@ export default function SectionsPage() {
               <span className="cd-label">Contact Us</span>
             </a>
           </li>
-          
         </ul>
       </nav>
-      </Fragment>
-    
+    </Fragment>
   );
 }

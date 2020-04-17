@@ -4,7 +4,7 @@ import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
-// react components for routing our app without refresh
+// react components for routing without refresh
 import { Link } from "react-router-dom";
 
 // @material-ui/core components
@@ -17,13 +17,12 @@ import Button from "components/CustomButtons/Button.js";
 // @material-ui/icons
 import Apps from "@material-ui/icons/Apps";
 import ViewCarousel from "@material-ui/icons/ViewCarousel";
-import AccountBalance from "@material-ui/icons/AccountBalance";
 import ArtTrack from "@material-ui/icons/ArtTrack";
-import Layers from "@material-ui/icons/Layers";
-import LineStyle from "@material-ui/icons/LineStyle";
-
-// core components
-
+import Speed from "@material-ui/icons/Timer";
+import People from "@material-ui/icons/People";
+import Code from "@material-ui/icons/Code";
+import AccountCircle from "@material-ui/icons/AccountCircle";
+import Face from "@material-ui/icons/Face";
 
 //Style definitions
 import styles from "assets/jss/material-kit-pro-react/components/headerLinksStyle.js";
@@ -53,7 +52,7 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
-              <LineStyle className={classes.dropdownIcons} /> Quick Service IT
+              <Speed className={classes.dropdownIcons} /> Quick Service IT
               Solutions
             </Link>,
             <Link
@@ -61,7 +60,7 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
-              <Layers className={classes.dropdownIcons} />
+              <People className={classes.dropdownIcons} />
               Managed Service Provider
             </Link>,
             <Link
@@ -69,7 +68,7 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
-              <Layers className={classes.dropdownIcons} />
+              <Code className={classes.dropdownIcons} />
               Software Development
             </Link>,
           ]}
@@ -92,82 +91,12 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
-              <LineStyle className={classes.dropdownIcons} /> Customer Login
+              <AccountCircle className={classes.dropdownIcons} /> Customer Login
             </Link>,
           ]}
         />
       </ListItem>
-      {/* <ListItem className={classes.listItem}>
-        <CustomDropdown
-          noLiPadding
-          navDropdown
-          hoverColor={dropdownHoverColor}
-          buttonText="Blog"
-          buttonProps={{
-            className: classes.navLink,
-            color: "transparent"
-          }}
-          buttonIcon={ViewDay}
-          dropdownList={[
-            <Link
-              to="/sections#headers"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <Dns className={classes.dropdownIcons} /> Headers
-            </Link>,
-            <Link
-              to="/sections#features"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <Build className={classes.dropdownIcons} /> Features
-            </Link>,
-            <Link
-              to="/sections#blogs"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <ListIcon className={classes.dropdownIcons} /> Blogs
-            </Link>,
-            <Link
-              to="/sections#teams"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <People className={classes.dropdownIcons} /> Teams
-            </Link>,
-            <Link
-              to="/sections#projects"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <Assignment className={classes.dropdownIcons} /> Projects
-            </Link>,
-            <Link
-              to="/sections#pricing"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <MonetizationOn className={classes.dropdownIcons} /> Pricing
-            </Link>,
-            <Link
-              to="/sections#testimonials"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <Chat className={classes.dropdownIcons} /> Testimonials
-            </Link>,
-            <Link
-              to="/sections#contacts"
-              className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
-            >
-              <Call className={classes.dropdownIcons} /> Contacts
-            </Link>
-          ]}
-        />
-      </ListItem> */}
+
       <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
@@ -185,7 +114,7 @@ export default function HeaderLinks(props) {
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
-              <AccountBalance className={classes.dropdownIcons} /> About Us
+              <Face className={classes.dropdownIcons} /> About Us
             </Link>,
             <Link
               to="/testimonials"
@@ -199,7 +128,6 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          // href="#contact-footer-container"
           onClick={props.swapContactModal}
           color="white"
           target="_blank"

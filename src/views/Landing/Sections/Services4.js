@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
 import Code from "@material-ui/icons/Code";
-import Timeline from "@material-ui/icons/Timeline";
+import DVR from "@material-ui/icons/Dvr";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -62,24 +62,32 @@ export default function SectionServices(props, { ...rest }) {
               </div>
             </GridItem>
             <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+              <div
+              class="ld ld-flip-v-in"
+              style={{
+                animationPlayState: `${props.servicePlayState}`,
+                animationDuration: `1.5s`,
+              }}>
               <InfoArea
                 className={classes.info4}
                 title="Database Management"
                 description="Do you need a database to keep track of your customers, invoices or products?"
-                icon={Timeline}
-                iconColor="rose"
+                icon={DVR}
+                iconColor="NTPCGreen"
               />
               <InfoArea
                 className={classes.info4}
                 title="Custom Software Solutions"
                 description="Looking for something not listed in our services? We can handle your custom software needs in-house for any programming solution."
                 icon={Code}
-                iconColor="success"
+                iconColor="NTPCGreen"
               />
+              </div>
             </GridItem>
           </GridContainer>
         </div>
       </div>
+      <div className={classes.sectionSpace} />
     </div>
   ));
 }

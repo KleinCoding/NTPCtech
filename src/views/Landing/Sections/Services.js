@@ -5,8 +5,9 @@ import React, { useMemo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 // @material-ui/icons
-import FormatPaint from "@material-ui/icons/FormatPaint";
+import BusinessCenter from "@material-ui/icons/BusinessCenter";
 import Code from "@material-ui/icons/Code";
+import Store from "@material-ui/icons/Store";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
@@ -30,13 +31,7 @@ export default function SectionServices(props, { ...rest }) {
     <div className="cd-section" {...rest} id="services">
       <div className={classes.projects + " " + classes.projects4}>
         <div className={classes.container}>
-          <div
-            class="ld ld-flip-v-in"
-            style={{
-              animationPlayState: `running`,
-              animationDuration: `2.5s`,
-            }}
-          >
+          <div>
             <GridContainer>
               <GridItem
                 xs={12}
@@ -102,22 +97,25 @@ export default function SectionServices(props, { ...rest }) {
                     className={classes.info4}
                     title="Franchise IT"
                     description="Looking for someone to handle IT maintenance and support? Contact us and discuss full-service options."
-                    icon={FormatPaint}
-                    iconColor="info"
+                    icon={BusinessCenter}
+                    iconColor="NTPCBlue"
                   />
                   <InfoArea
                     className={classes.info4}
                     title="In-Store support"
                     description="Need IT for multiple locations and in-store support? NTPC Solutions has you covered."
-                    icon={Code}
-                    iconColor="primary"
+                    icon={Store}
+                    iconColor="NTPCBlue"
                   />
+                  <br></br>
                 </div>
               </GridItem>
             </GridContainer>
+            
           </div>
         </div>
       </div>
     </div>
+    
   ));
 }

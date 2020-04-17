@@ -91,43 +91,7 @@ export default function SectionFooter() {
                   </ListItem>
                 </List>
               </div>
-              <div className={classes.rightLinks}>
-                <ul>
-                  <li>
-                    <Button
-                      href="https://twitter.com/CreativeTim?ref=creativetim"
-                      target="_blank"
-                      color="twitter"
-                      justIcon
-                      simple
-                    >
-                      <i className="fab fa-twitter" />
-                    </Button>
-                  </li>
-                  <li>
-                    <Button
-                      href="https://dribbble.com/creativetim?ref=creativetim"
-                      target="_blank"
-                      color="dribbble"
-                      justIcon
-                      simple
-                    >
-                      <i className="fab fa-dribbble" />
-                    </Button>
-                  </li>
-                  <li>
-                    <Button
-                      href="https://instagram.com/CreativeTimOfficial?ref=creativetim"
-                      target="_blank"
-                      color="google"
-                      justIcon
-                      simple
-                    >
-                      <i className="fab fa-google-plus-g" />
-                    </Button>
-                  </li>
-                </ul>
-              </div>
+             
             </div>
           }
         />

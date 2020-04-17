@@ -4,7 +4,10 @@ import {
   successColor,
   whiteColor,
   grayColor,
-  defaultFont
+  defaultFont,
+  ntpcBlue,
+  ntpcGreen,
+  ntpcOrange
 } from "assets/jss/material-kit-pro-react.js";
 
 const customInputStyle = {
@@ -19,7 +22,7 @@ const customInputStyle = {
       borderBottomWidth: "1px !important"
     },
     "&:after": {
-      borderBottomColor: primaryColor[0]
+      borderBottomColor: ntpcBlue[3]
     }
   },
   underlineError: {

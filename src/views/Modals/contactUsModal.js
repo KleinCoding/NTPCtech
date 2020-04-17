@@ -27,7 +27,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 //Assets/Images
 import skyline2 from "assets/img/jason/hires/skyline2.jpg";
-import landingLogo from "../../assets/img/jason/newlogo3.png"
+import landingLogo from "../../assets/img/jason/newlogo3.png";
 
 //Variable definitions
 const useStyles = makeStyles(contactsStyle);
@@ -76,7 +76,7 @@ export default function SectionContacts(props, { ...rest }) {
         "success",
         3500
       );
-      setDisableInputsModal(true)
+      setDisableInputsModal(true);
     } else if (messageDataModal.firstName === "") {
       alertOpen(
         "Please check the input fields and try again.",
@@ -105,13 +105,13 @@ export default function SectionContacts(props, { ...rest }) {
       alertOpen("Please click the checkbox and try again.", "warning", 2000);
     }
   };
- //This disables input fields to prevent multiple use cases/scrapers after successful submission
+  //This disables input fields to prevent multiple use cases/scrapers after successful submission
   const [disableInputsModal, setDisableInputsModal] = useState(false);
 
   //These are for the notifications on message errors
   //To add additional toast alerts, use the function alertOpen()
   //Ex: alertOpen("message wanted", "severity wanted", "duration wanted")
-  //Severity choices: Success(green), Info (blue), Warning(orange), Error(red)
+  //Severity choices: Success(green), Info(blue), Warning(orange), Error(red)
   //Duration must be in milliseconds
   //If duration is not supplied, notification will remain open until user closes manually/clicks away
   const [alertState, setAlertState] = useState({
@@ -139,7 +139,6 @@ export default function SectionContacts(props, { ...rest }) {
     });
   };
 
- 
   return (
     <div className="cd-section" {...rest} id="contact-modal-container">
       <div
@@ -150,11 +149,16 @@ export default function SectionContacts(props, { ...rest }) {
           <GridContainer>
             <GridItem xs={12} sm={5} md={5}>
               {/* <h2 className={classes.title}>Insert Title Here and uncomment out</h2> */}
-              <div id= "contactModalLogo">
-            <img src= {landingLogo} alt="logo" style={{textAlign: "center"}}/>
-            </div>
+              <div id="contactModalLogo">
+                <img
+                  src={landingLogo}
+                  alt="logo"
+                  style={{ textAlign: "center" }}
+                />
+              </div>
               <h5 className={classes.description}>
-                Let us know what we can do for you and your business. Reach out today!
+                Let us know what we can do for you and your business. Reach out
+                today!
               </h5>
               <InfoArea
                 className={classes.infoArea}
@@ -202,7 +206,7 @@ export default function SectionContacts(props, { ...rest }) {
                         <CustomInput
                           labelText="First Name"
                           id="firstNameFormModal"
-                          success= {disableInputsModal}
+                          success={disableInputsModal}
                           inputProps={{ disabled: disableInputsModal }}
                           formControlProps={{
                             fullWidth: true,
@@ -213,7 +217,7 @@ export default function SectionContacts(props, { ...rest }) {
                         <CustomInput
                           labelText="Last Name"
                           id="lastNameFormModal"
-                          success= {disableInputsModal}
+                          success={disableInputsModal}
                           inputProps={{ disabled: disableInputsModal }}
                           formControlProps={{
                             fullWidth: true,
@@ -224,7 +228,7 @@ export default function SectionContacts(props, { ...rest }) {
                     <CustomInput
                       labelText="Email Address"
                       id="emailMessageFormModal"
-                      success= {disableInputsModal}
+                      success={disableInputsModal}
                       inputProps={{ disabled: disableInputsModal }}
                       formControlProps={{
                         fullWidth: true,
@@ -236,7 +240,7 @@ export default function SectionContacts(props, { ...rest }) {
                       formControlProps={{
                         fullWidth: true,
                       }}
-                      success= {disableInputsModal}
+                      success={disableInputsModal}
                       inputProps={{
                         disabled: disableInputsModal,
                         multiline: true,
@@ -265,7 +269,7 @@ export default function SectionContacts(props, { ...rest }) {
                       label="I'm not a robot"
                     />
                     <Button
-                    disabled={disableInputsModal}
+                      disabled={disableInputsModal}
                       color="NTPCBlue"
                       className={classes.pullRight}
                       type="submit"

@@ -17,8 +17,9 @@
 #landing-container {
   background-color: #ffffff;
   background-size: 100%;
-    background-repeat: repeat;
-    background-image: url("../../assets/img/jason/NTPCbkg30.png"); 
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-image: url(../../assets/img/jason/NTPCbkg30.png);
 }
 /* The media queries for services2-card1 & services2-card2 are
 for correcting the 2nd services image placement/layout on mobile screens */

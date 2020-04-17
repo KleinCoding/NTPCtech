@@ -6,6 +6,9 @@ import {
   infoColor,
   roseColor,
   grayColor,
+  ntpcBlue,
+  ntpcGreen,
+  ntpcOrange,
   title
 } from "assets/jss/material-kit-pro-react.js";
 
@@ -19,6 +22,15 @@ const infoStyle = {
     float: "left",
     marginTop: "24px",
     marginRight: "10px"
+  },
+  NTPCBlue: {
+    color: ntpcBlue[0]
+  },
+  NTPCGreen: {
+    color: ntpcGreen[0]
+  },
+  NTPCOrange: {
+    color: ntpcOrange[0]
   },
   primary: {
     color: primaryColor[0]

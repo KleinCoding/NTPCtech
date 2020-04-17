@@ -20,6 +20,8 @@ import About from "views/About/About.js";
 
 //Footers
 import ContactFooter from "views/Landing/Sections/contactUs";
+import Footer from "views/Footer/Footer.js";
+
 
 //Components for Modal popups
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,21 +31,19 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
+import style from "assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js";
 
 // @material-ui/icons
 import Close from "@material-ui/icons/Close";
 
-// core components
-import style from "assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js";
-
 //Views loaded inside modal popup
-import ContactUsModal from "./views/Testing/contactUsModal";
+import ContactUsModal from "./views/Modals/contactUsModal";
 
 // CSS for transition animations, index and modal popups
 import "./assets/loading.css";
 import "./assets/transition.css";
 import "./index.css";
-import "./views/Testing/Modal.css"
+import "./views/Modals/Modal.css";
 
 //Variable Definitions
 const useStyles = makeStyles(style);
@@ -53,7 +53,6 @@ var hist = createBrowserHistory();
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
-
 
 //This function ensures that the browser resets to the top of the page upon loading a route
 const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
@@ -65,50 +64,55 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
 });
 
 function App() {
-  //This hook and function handles the mobile-size navigation menu open/close state
+  //This hook and function handles the mobile-size navigation menu open/close state. 
+  //This is passed to the HeaderLinks component 
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-//This hook and function handles the open/close state of the ContactUs modal
+  //This hook and function handles the open/close state of the ContactUs modal.
+  //This is passed to the HeaderLinks component, Footer component and Carousel (through the Landing component)
   const [contactModal, setContactModal] = React.useState(false);
   const swapContactModal = () => {
-    console.log(!contactModal);
+    setMobileOpen(false);
     setContactModal(!contactModal);
   };
+  //Hook to define classes for Material Kit/Material-ui design styles
   const classes = useStyles();
 
   return (
     <Router history={hist}>
-      <ScrollToTop>
-        <div className="App" id="root-container" />
+      <div className="App" id="root-container">
+        <ScrollToTop>
+          <Header
+            color="NTPCBlue"
+            links={
+              <HeaderLinks
+                dropdownHoverColor="NTPCGreen"
+                handleDrawerToggle={handleDrawerToggle}
+                swapContactModal={swapContactModal}
+              />
+            }
+            mobileOpen={mobileOpen}
+            handleDrawerToggle={handleDrawerToggle}
+            fixed
+          />
 
-        <Header
-          color="NTPCBlue"
-          brand="NTPC Tech"
-          links={
-            <HeaderLinks
-              dropdownHoverColor="info"
-              handleDrawerToggle={handleDrawerToggle}
-              swapContactModal={swapContactModal}
-            />
-          }
-          mobileOpen={mobileOpen}
-          handleDrawerToggle={handleDrawerToggle}
-          fixed
-        />
+          {/* Add additional routes here */}
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/support" component={Support} />
+          <Route exact path="/services" component={Services} />
 
-        {/* Add additional routes here */}
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/support" component={Support} />
-        <Route exact path="/services" component={Services} />
-      </ScrollToTop>
-      <ContactFooter />
+          <ContactFooter />
+          <Footer swapContactModal={swapContactModal} />
+          {/* <Footer2 swapContactModal={swapContactModal} /> */}
 
+        </ScrollToTop>
+      </div>
       {/* This is the modal popup for the "Contact Us" button on the NavBar */}
-      <div id="modal-test-container">
+      <div id="modal-contact-container">
         <Dialog
           classes={{
             root: classes.modalRoot,
@@ -149,9 +153,7 @@ function App() {
               id="login-modal-slide-description"
               className={classes.modalBody}
             >
-
               <ContactUsModal />
-
             </DialogContent>
           </Card>
         </Dialog>

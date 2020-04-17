@@ -48,7 +48,6 @@ function HideOnScroll(props) {
 
 
 export default function Header(props) {
-  // const [mobileOpen, setMobileOpen] = React.useState(false);
   const classes = useStyles();
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -61,10 +60,7 @@ export default function Header(props) {
     };
   });
 
-  // const handleDrawerToggle = () => {
-  //   setMobileOpen(!mobileOpen);
-  //   console.log("handleDrawerToggle", !mobileOpen)
-  // };
+
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
 
