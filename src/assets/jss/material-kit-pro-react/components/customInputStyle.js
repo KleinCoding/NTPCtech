@@ -1,13 +1,13 @@
 import {
-  primaryColor,
+  // primaryColor,
   dangerColor,
   successColor,
   whiteColor,
   grayColor,
   defaultFont,
   ntpcBlue,
-  ntpcGreen,
-  ntpcOrange
+  // ntpcGreen,
+  // ntpcOrange
 } from "assets/jss/material-kit-pro-react.js";
 
 const customInputStyle = {

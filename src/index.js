@@ -16,12 +16,11 @@ import Landing from "views/Landing/Landing.js";
 import Login from "views/Login/Login.js";
 import Services from "views/Services/Services.js";
 import Support from "views/Support/Support.js";
-import About from "views/About/About.js";
+import About from "views/About/About2.js";
 
 //Footers
 import ContactFooter from "views/Landing/Sections/contactUs";
 import Footer from "views/Footer/Footer.js";
-
 
 //Components for Modal popups
 import { makeStyles } from "@material-ui/core/styles";
@@ -64,8 +63,8 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
 });
 
 function App() {
-  //This hook and function handles the mobile-size navigation menu open/close state. 
-  //This is passed to the HeaderLinks component 
+  //This hook and function handles the mobile-size navigation menu open/close state.
+  //This is passed to the HeaderLinks component
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -107,8 +106,6 @@ function App() {
 
           <ContactFooter />
           <Footer swapContactModal={swapContactModal} />
-          {/* <Footer2 swapContactModal={swapContactModal} /> */}
-
         </ScrollToTop>
       </div>
       {/* This is the modal popup for the "Contact Us" button on the NavBar */}
