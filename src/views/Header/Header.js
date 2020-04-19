@@ -15,8 +15,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import Slide from '@material-ui/core/Slide';
 
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
@@ -31,19 +29,6 @@ import NewLogo3 from "../../assets/img/jason/newlogo3.png";
 
 //Defines styling for Material Kit components
 const useStyles = makeStyles(styles);
-
-
-//This function hides the Navbar when the user scrolls down + re-displays when they scroll up
-function HideOnScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger({ target: window ? window : undefined });
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
 
 
 
@@ -89,7 +74,7 @@ export default function Header(props) {
     [classes.fixed]: fixed
   });
   return (
-    <HideOnScroll {...props}>
+    
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         <Button className={classes.title}>
@@ -131,12 +116,11 @@ export default function Header(props) {
         </Drawer>
       </Hidden>
     </AppBar>
-    </HideOnScroll>
   );
 }
 
 Header.defaultProp = {
-  color: "white"
+  color: "transparent"
 };
 
 Header.propTypes = {

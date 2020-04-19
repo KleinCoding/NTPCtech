@@ -25,7 +25,7 @@ export default function SectionServices(props, { ...rest }) {
   const classes = useStyles();
 
   return useMemo(() => (
-    <div className={classes.projects + " " + classes.projects4}>
+  
       <div className={classes.container}>
         <div
           class="ld ld-float-ltr-in"
@@ -87,7 +87,7 @@ export default function SectionServices(props, { ...rest }) {
           </GridContainer>
         </div>
       </div>
-      <div className={classes.sectionSpace} />
-    </div>
+      
+   
   ));
 }

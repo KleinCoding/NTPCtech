@@ -1,130 +1,118 @@
-import React, { Fragment } from "react";
+/*eslint-disable*/
+import React from "react";
+
+// nodejs library that concatenates classes
+import classNames from "classnames";
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
-
-// core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import InfoArea from "components/InfoArea/InfoArea.js";
-import Card from "components/Card/Card.js";
-import CardBody from "components/Card/CardBody.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardFooter from "components/Card/CardFooter.js";
+import Parallax from "components/Parallax/Parallax.js";
 import Button from "components/CustomButtons/Button.js";
 
-//Style definitions
-import featuresStyle from "assets/jss/material-kit-pro-react/views/sectionsSections/featuresStyle.js";
-import cardsStyle from "assets/jss/material-kit-pro-react/views/componentsSections/sectionCards.js";
-
-// CSS, Assets
-import "./About.css";
+//Assets
 import Profile from "assets/img/jason/jasonPhoto.jpg";
 
-//Variable definitions
-const style = {
-  ...cardsStyle,
-  ...featuresStyle,
-};
+//CSS
+import "./About.css"
 
-const useStyles = makeStyles(style);
+//Styles
+import profilePageStyle from "assets/jss/material-kit-pro-react/views/profilePageStyle.js";
+const useStyles = makeStyles(profilePageStyle);
 
-export default function AboutPage(props) {
-  //Hook for Material Kit Pro classes and styles
+export default function ProfilePage() {
   const classes = useStyles();
-
+  const imageClasses = classNames(
+    classes.imgRaised,
+    classes.imgRoundedCircle,
+    classes.imgFluid
+  );
+  
   return (
-    <Fragment>
-      <div id="about-container">
-        <Card style={{ maxWidth: "70vw"}}>
-        <Card profile style={{ maxWidth: "360px" }}>
-          <CardHeader image>
-            <img src={Profile} alt="..." />
-
-            <div
-              className={classes.coloredShadow}
-              style={{
-                backgroundImage: `url(${Profile})`,
-                opacity: "1",
-              }}
-            />
-          </CardHeader>
-          <CardBody>
-            <h4 className={classes.cardTitle}>Jason Radcliffe</h4>
-            <h6
-              className={`${classes.cardCategory} ${classes.cardDescription}`}
-            >
-              FOUNDER
-            </h6>
-          </CardBody>
-          <CardFooter profile className={classes.justifyContentCenter}>
-            <Button justIcon round color="twitter">
-              <i className="fab fa-twitter" />
-            </Button>
-            <Button justIcon round color="facebook">
-              <i className="fab fa-facebook" />
-            </Button>
-            <Button justIcon round color="linkedin">
-              <i className="fab fa-linkedin" />
-            </Button>
-          </CardFooter>
-        </Card>
-
-        <div className={classes.features1}>
-          
-          <GridContainer>
-            <GridItem
-              xs={12}
-              sm={8}
-              md={8}
-              className={classes.mlAuto + " " + classes.mrAuto}
-            >
-              <h2 className={classes.title}>Why our product is the best</h2>
-              <h5 className={classes.description}>
-                This is the paragraph where you can write more details about
-                your product. Keep you user engaged by providing meaningful
-                information. Remember that by this time, the user is curious,
-                otherwise he wouldn{"'"}t scroll to get here. Add a button if
-                you want the user to see more.
-              </h5>
+    <div style={{ textAlign: "-webkit-center"}}>
+      <Parallax
+        image={require("assets/img/jason/hires/hello2.jpg")}
+        // filter="dark"
+        className={classes.parallax}
+        style={{ objectFit: "cover"}}
+      />
+      <div id ="about-card" className={classNames(classes.main, classes.mainRaised)}>
+        <div className={classes.container}>
+          <GridContainer justify="center" >
+            <GridItem xs={12} sm={12} md={6} >
+              <div className={classes.profile}>
+               
+                  <img src={Profile} alt="..." className={imageClasses} />
+                
+                <div className={classes.name}>
+                  <h3 className={classes.title}>Jason Radcliffe</h3>
+                  <h6>FOUNDER</h6>
+                  <Button
+                    justIcon
+                    simple
+                    color="dribbble"
+                    className={classes.margin5}
+                  >
+                    <i className={classes.socials + " fab fa-dribbble"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    simple
+                    color="twitter"
+                    className={classes.margin5}
+                  >
+                    <i className={classes.socials + " fab fa-twitter"} />
+                  </Button>
+                  <Button
+                    justIcon
+                    simple
+                    color="pinterest"
+                    className={classes.margin5}
+                  >
+                    <i className={classes.socials + " fab fa-pinterest"} />
+                    
+                  </Button>
+                  <br />
+                  <br />
+                 
+                </div>
+              </div>
             </GridItem>
           </GridContainer>
-          <GridContainer>
-            <GridItem xs={12} sm={4} md={4}>
-              <InfoArea
-                vertical
-                icon={Chat}
-                title="Free Chat"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough"
-                iconColor="info"
-              />
-            </GridItem>
-            <GridItem xs={12} sm={4} md={4}>
-              <InfoArea
-                vertical
-                icon={VerifiedUser}
-                title="Verified Users"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                iconColor="success"
-              />
-            </GridItem>
-            <GridItem xs={12} sm={4} md={4}>
-              <InfoArea
-                vertical
-                icon={Fingerprint}
-                title="Fingerprint"
-                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-                iconColor="danger"
-              />
-            </GridItem>
-          </GridContainer>
-           
+          <div >
+
+
+            <p>
+              NTPC Tech Solutions was founded in 2017 to
+              provide professional Information Technology services that enable
+              companies and organizations to solve their computer problems in
+              the most effective and most cost efficient way possible. Our
+              partners are many and leaders in their fields; each has the
+              products, services, expertise and resources that make our
+              partnership with them, and you, a winning combination! NTPC Tech
+              Solutions takes an “ownership” interest in meeting our clients’
+              Information Technology needs, as if we owned the place and will
+              bear the consequences and enjoy the benefits of our
+              recommendations and actions. Having addressed and met the needs of
+              many organizations and companies — large and small, locally and
+              nationally, in a variety of sectors — we have acquired the
+              experience, knowledge and skills that make us the undisputed
+              leader in what we do.{" "}
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+              <br />
+            </p>
+          </div>
         </div>
-       </Card>
       </div>
-    </Fragment>
+      <br />
+      <br />
+    </div>
   );
 }

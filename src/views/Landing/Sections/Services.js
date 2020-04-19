@@ -29,7 +29,7 @@ export default function SectionServices(props, { ...rest }) {
 
   return useMemo(() => (
     <div className="cd-section" {...rest} id="services">
-      <div className={classes.projects + " " + classes.projects4}>
+      
         <div className={classes.container}>
           <div>
             <GridContainer>
@@ -112,7 +112,7 @@ export default function SectionServices(props, { ...rest }) {
               </GridItem>
             </GridContainer>
             
-          </div>
+         
         </div>
       </div>
     </div>

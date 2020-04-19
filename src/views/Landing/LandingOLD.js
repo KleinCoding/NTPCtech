@@ -2,11 +2,12 @@ import React, { useState, Fragment } from "react";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Parallax from "components/Parallax/Parallax.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+
+// core components
+import sectionsPageStyle from "assets/jss/material-kit-pro-react/views/sectionsPageStyle.js";
 
 // section components
+import SectionCarousel from "./Sections/Carousel";
 import SectionServices from "./Sections/Services";
 import SectionServices2 from "./Sections/Services2";
 import SectionServices4 from "./Sections/Services4";
@@ -21,13 +22,7 @@ import "./Landing.css";
 import landingLogo from "../../assets/img/jason/NTPClogoblack.png";
 
 //Variable definitions
-import classNames from "classnames";
-import productStyle from "assets/jss/material-kit-pro-react/views/productStyle.js";
-
-const style = {
-  ...productStyle,
-};
-const useStyles = makeStyles(style);
+const useStyles = makeStyles(sectionsPageStyle);
 
 export default function SectionsPage() {
   //These three functions are for the smooth auto scroll feature of the navigation dots on the landing page
@@ -78,9 +73,9 @@ export default function SectionsPage() {
       );
       const isShow = currPos.y;
       //These are the scroll position definitions for DESKTOP users
-      if (isShow >= 100 && isMobile === null) setServicePlayState("running");
-      if (isShow >= 400 && isMobile === null) setServicePlayState2("running");
-      if (isShow >= 700 && isMobile === null) setServicePlayState3("running");
+      if (isShow >= 350 && isMobile === null) setServicePlayState("running");
+      if (isShow >= 800 && isMobile === null) setServicePlayState2("running");
+      if (isShow >= 1300 && isMobile === null) setServicePlayState3("running");
       //These are the scroll position definitions for MOBILE users
       if (isShow >= 500 && isMobile !== null) setServicePlayState("running");
       if (isShow >= 1200 && isMobile !== null) setServicePlayState2("running");
@@ -94,68 +89,22 @@ export default function SectionsPage() {
 
   return (
     <Fragment>
-      <Parallax
-        id="page-top"
-        image={require("assets/img/jason/hires/skyline1.jpg")}
-        filter="dark"
-        className={classes.parallax}
-        style={{ objectFit: "cover", maxHeight: "50vh" }}
-      />
-      <div style={{ textAlign: "-webkit-center" }}>
-        <div
-          id="about-card"
-          className={classNames(classes.main, classes.mainRaised)}
-        >
-          <div className={classes.container}>
-            <br />
-            <br />
-            <br />
-            <div className="landingLogo">
-              <img
-                src={landingLogo}
-                alt="logo"
-                style={{ textAlign: "center" }}
-              />
-            </div>
-            <GridContainer justify="center">
-              <GridItem xs={12} sm={12} md={6}></GridItem>
-            </GridContainer>
-            <div>
-              <SectionServices
-                id="services"
-                servicePlayState={servicePlayState}
-              />
-              <br />
-              <br />
-              <SectionServices2
-                id="services1"
-                servicePlayState={servicePlayState2}
-              />
-              <br />
-              <br />
-              <SectionServices4
-                id="services2"
-                servicePlayState={servicePlayState3}
-              />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-            </div>
-          </div>
+      <div id="landing-container" className={classes.main}>
+        <SectionCarousel id="carousel" />
+        <div className="landingLogo">
+          <img src={landingLogo} alt="logo" style={{ textAlign: "center" }} />
         </div>
-        <br />
-        <br />
+        <SectionServices id="services" servicePlayState={servicePlayState} />
+        <SectionServices2 id="services1" servicePlayState={servicePlayState2} />
+        <SectionServices4 id="services2" servicePlayState={servicePlayState3} />
       </div>
+
       {/* Vertical Nav Dots */}
       <nav id="cd-vertical-nav">
         <ul>
           <li>
             <a
-              href="#about-card"
+              href="#carousel"
               data-number="1"
               className=""
               onClick={(e) => {
@@ -166,7 +115,7 @@ export default function SectionsPage() {
                   // if we are on mobile device the scroll into view will be managed by the browser
                 } else {
                   e.preventDefault();
-                  smoothScroll("about-card");
+                  smoothScroll("carousel");
                 }
               }}
             >

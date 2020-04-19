@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
@@ -16,7 +16,7 @@ import Landing from "views/Landing/Landing.js";
 import Login from "views/Login/Login.js";
 import Services from "views/Services/Services.js";
 import Support from "views/Support/Support.js";
-import About from "views/About/About2.js";
+import About from "views/About/About.js";
 
 //Footers
 import ContactFooter from "views/Landing/Sections/contactUs";
@@ -65,13 +65,13 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
 function App() {
   //This hook and function handles the mobile-size navigation menu open/close state.
   //This is passed to the HeaderLinks component
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  //This hook and function handles the open/close state of the ContactUs modal.
-  //This is passed to the HeaderLinks component, Footer component and Carousel (through the Landing component)
-  const [contactModal, setContactModal] = React.useState(false);
+  //This hook and function handles the open/close state of the ContactUs modal popup.
+  //This is passed to the HeaderLinks component and ContactFooter component
+  const [contactModal, setContactModal] = useState(false);
   const swapContactModal = () => {
     setMobileOpen(false);
     setContactModal(!contactModal);
@@ -84,7 +84,7 @@ function App() {
       <div className="App" id="root-container">
         <ScrollToTop>
           <Header
-            color="NTPCBlue"
+            color="transparent"
             links={
               <HeaderLinks
                 dropdownHoverColor="NTPCGreen"
@@ -92,6 +92,10 @@ function App() {
                 swapContactModal={swapContactModal}
               />
             }
+            changeColorOnScroll={{
+              height: 100,
+              color: "NTPCBlue",
+            }}
             mobileOpen={mobileOpen}
             handleDrawerToggle={handleDrawerToggle}
             fixed
@@ -105,10 +109,10 @@ function App() {
           <Route exact path="/services" component={Services} />
 
           <ContactFooter />
-          <Footer swapContactModal={swapContactModal} />
+          <Footer />
         </ScrollToTop>
       </div>
-      {/* This is the modal popup for the "Contact Us" button on the NavBar */}
+      {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users */}
       <div id="modal-contact-container">
         <Dialog
           classes={{
