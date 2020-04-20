@@ -1,5 +1,30 @@
 #contactModalLogo img {
-  width:100%; 
+  width: 100%;
   height: auto;
- 
-  }
+}
+
+#login-modal-container {
+  justify-content: center !important;
+  background-color: transparent;
+  background-size: 100%;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  width: 100%;
+  height: auto;
+}
+
+#login-modal-slide-description {
+  align-self: center !important;
+  background-color: transparent;
+  background-size: 100%;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+}
+
+.makeStyles-modalLoginCard-28 {
+  background-color: #ffffff;
+  background-size: 100% !important;
+  background-repeat: repeat;
+  background-position: 50% 50%;
+  background-image: url(../../assets/img/jason/NTPCbkg75.png) !important;
+}

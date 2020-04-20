@@ -3,19 +3,17 @@ import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 
-//Global CSS for material kit/material-ui
-import "assets/scss/material-kit-pro-react.scss?v=1.8.0";
-
 //NavBar
 import Header from "./views/Header/Header";
 import HeaderLinks from "./views//Header/HeaderLinks.js";
 import Button from "components/CustomButtons/Button.js";
 
-// pages/views
+//Pages/views
 import Landing from "views/Landing/Landing.js";
 import Login from "views/Login/Login.js";
-import Services from "views/Services/Services.js";
-import Support from "views/Support/Support.js";
+import QuickServicePage from "views/Services/QuickService/quickServicePage.js";
+import ManagedProviderPage from "views/Services/ManagedProvider/managedProviderPage.js";
+import SoftwareDevPage from "views/Services/SoftwareDevelopment/softwareDevPage.js";
 import About from "views/About/About.js";
 
 //Footers
@@ -37,12 +35,17 @@ import Close from "@material-ui/icons/Close";
 
 //Views loaded inside modal popup
 import ContactUsModal from "./views/Modals/contactUsModal";
+import LoginModal from "./views/Modals/loginModal";
 
 // CSS for transition animations, index and modal popups
 import "./assets/loading.css";
 import "./assets/transition.css";
 import "./index.css";
 import "./views/Modals/Modal.css";
+
+//Global CSS for material kit/material-ui
+import "assets/scss/material-kit-pro-react.scss?v=1.8.0";
+
 
 //Variable Definitions
 const useStyles = makeStyles(style);
@@ -63,21 +66,43 @@ const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
 });
 
 function App() {
+  //Detects if user is on mobile or desktop
+  const isMobile = navigator.userAgent.match(
+    /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
+  );
+
+  //Hook to define classes for Material Kit/Material-ui design styles
+  const classes = useStyles();
+
   //This hook and function handles the mobile-size navigation menu open/close state.
   //This is passed to the HeaderLinks component
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  //This hook and function handles the open/close state of the ContactUs modal popup.
-  //This is passed to the HeaderLinks component and ContactFooter component
+  
+  //These two hooks and two functions handle the open/close state of the ContactUs and Login modal popups for desktop users.
+  //This is passed to the HeaderLinks for use onClick in NavBar options
   const [contactModal, setContactModal] = useState(false);
+  const [loginModal, setLoginModal] = useState(false);
   const swapContactModal = () => {
-    setMobileOpen(false);
-    setContactModal(!contactModal);
-  };
-  //Hook to define classes for Material Kit/Material-ui design styles
-  const classes = useStyles();
+    if (isMobile === null) {
+      setMobileOpen(false);
+      setContactModal(!contactModal);
+    } else if (isMobile !== null) {
+      setMobileOpen(false);
+      hist.push("/services");
+      hist.go();
+    }};
+  const swapLoginModal = () => {
+    if (isMobile === null) {
+      setMobileOpen(false);
+      setLoginModal(!loginModal);
+    } else if (isMobile !== null) {
+      setMobileOpen(false);
+      hist.push("/login");
+      hist.go();
+    }};
 
   return (
     <Router history={hist}>
@@ -90,6 +115,7 @@ function App() {
                 dropdownHoverColor="NTPCGreen"
                 handleDrawerToggle={handleDrawerToggle}
                 swapContactModal={swapContactModal}
+                swapLoginModal={swapLoginModal}
               />
             }
             changeColorOnScroll={{
@@ -105,24 +131,27 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/support" component={Support} />
-          <Route exact path="/services" component={Services} />
+          <Route exact path="/qss" component={QuickServicePage} />
+          <Route exact path="/msp" component={ManagedProviderPage} />
+          <Route exact path="/sdp" component={SoftwareDevPage} />
+     
 
           <ContactFooter />
           <Footer />
         </ScrollToTop>
       </div>
-      {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users */}
-      <div id="modal-contact-container">
+
+      {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users */}
+      <div id="modal-login-container">
         <Dialog
           classes={{
             root: classes.modalRoot,
             paper: classes.modal + " " + classes.modalLarge,
           }}
-          open={contactModal}
+          open={loginModal}
           TransitionComponent={Transition}
           keepMounted
-          onClose={() => setContactModal(false)}
+          onClose={() => setLoginModal(false)}
           aria-labelledby="login-modal-slide-title"
           aria-describedby="login-modal-slide-description"
         >
@@ -154,11 +183,61 @@ function App() {
               id="login-modal-slide-description"
               className={classes.modalBody}
             >
-              <ContactUsModal />
+              <LoginModal />
             </DialogContent>
           </Card>
         </Dialog>
       </div>
+
+       {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users */}
+       <div id="modal-contact-container">
+        <Dialog
+          classes={{
+            root: classes.modalRoot,
+            paper: classes.modal + " " + classes.modalLarge,
+          }}
+          open={contactModal}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={() => setContactModal(false)}
+          aria-labelledby="contact-modal-slide-title"
+          aria-describedby="contact-modal-slide-description"
+        >
+          <Card plain className={classes.modalLoginCard}>
+            <DialogTitle
+              id="contact-modal-slide-title"
+              disableTypography
+              className={classes.modalHeader}
+            >
+              <CardHeader
+                plain
+                color="NTPCBlue"
+                className={`${classes.textCenter} ${classes.cardLoginHeader}`}
+              >
+                <Button
+                  simple
+                  className={classes.modalCloseButton}
+                  key="close"
+                  aria-label="Close"
+                  onClick={() => setContactModal(false)}
+                >
+                  {" "}
+                  <Close className={classes.modalClose} />
+                </Button>
+                <h5 className={classes.cardTitleWhite}>Need a hand?</h5>
+              </CardHeader>
+            </DialogTitle>
+            <DialogContent
+              id="contact-modal-slide-description"
+              className={classes.modalBody}
+            >
+              <ContactUsModal />
+
+            </DialogContent>
+          </Card>
+        </Dialog>
+      </div>
+
     </Router>
   );
 }

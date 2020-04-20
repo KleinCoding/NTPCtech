@@ -69,7 +69,7 @@ export default function SectionContacts(props, { ...rest }) {
       messageData.message !== ""
     ) {
       //Add code here to submit messageData to your backend.
-      console.log("submitting user message", messageData);
+      // console.log("submitting user message", messageData);
       alertOpen(
         "Thank you! We will return your message as soon as possible.",
         "success",
@@ -158,7 +158,6 @@ export default function SectionContacts(props, { ...rest }) {
                 title="Find us at the office"
                 description={
                   <span>
-                    Jason Radcliff
                     <br /> Dallas,
                     <br /> Places
                   </span>
@@ -171,8 +170,8 @@ export default function SectionContacts(props, { ...rest }) {
                 description={
                   <span>
                     Jason Radcliffe
-                    <br /> +40 762 321 762
-                    <br /> Mon - Fri, 8:00-22:00
+                    <br /> 940-536-3643
+                    <br /> Mon - Fri, 8:00A - 10:00P
                   </span>
                 }
                 icon={Phone}

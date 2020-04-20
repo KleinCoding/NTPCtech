@@ -1,7 +1,7 @@
 
 #login-container {
   width : 100vw;
-  height : 727px;
+  height : 80vh;
   display: flex;
   flex-direction: column;
   margin: auto auto;

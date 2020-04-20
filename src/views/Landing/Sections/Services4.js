@@ -25,49 +25,41 @@ export default function SectionServices(props, { ...rest }) {
   const classes = useStyles();
 
   return useMemo(() => (
-  
-      <div className={classes.container}>
-        <div
-          class="ld ld-float-ltr-in"
-          style={{
-            animationPlayState: `${props.servicePlayState}`,
-            animationDuration: `2.0s`,
-          }}
-        >
-          <GridContainer>
-            <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
-              <div
-                class="ld ld-flip-v-in"
-                style={{
-                  animationPlayState: `${props.servicePlayState}`,
-                  animationDuration: `1.5s`,
-                }}
+    <div className={classes.container}>
+      <div
+        class="ld ld-float-ltr-in"
+        style={{
+          animationPlayState: `${props.servicePlayState}`,
+          animationDuration: `2.0s`,
+        }}
+      >
+        <GridContainer>
+          <GridItem xs={12} sm={5} md={5} className={classes.mlAuto}>
+            
+              <Card
+                background
+                className={classes.card4}
+                style={{ backgroundImage: `url(${cardProject1})` }}
               >
-                <Card
-                  background
-                  className={classes.card4}
-                  style={{ backgroundImage: `url(${cardProject1})` }}
-                >
-                  <CardBody background className={classes.cardBody4}>
-                    <a href="#pablo" onClick={(e) => e.preventDefault}>
-                      <h3 className={classes.cardTitle}>
-                        Software Development
-                      </h3>
-                      <p className={classes.cardDescription}>
-                        Custom programming and dedicated support
-                      </p>
-                    </a>
-                  </CardBody>
-                </Card>
-              </div>
-            </GridItem>
-            <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
-              <div
+                <CardBody background className={classes.cardBody4}>
+                  <a href="#pablo" onClick={(e) => e.preventDefault}>
+                    <h3 className={classes.cardTitle}>Software Development</h3>
+                    <p className={classes.cardDescription}>
+                      Custom programming and dedicated support
+                    </p>
+                  </a>
+                </CardBody>
+              </Card>
+          
+          </GridItem>
+          <GridItem xs={12} sm={5} md={5} className={classes.mrAuto}>
+            <div
               class="ld ld-flip-v-in"
               style={{
                 animationPlayState: `${props.servicePlayState}`,
                 animationDuration: `1.5s`,
-              }}>
+              }}
+            >
               <InfoArea
                 className={classes.info4}
                 title="Database Management"
@@ -82,12 +74,10 @@ export default function SectionServices(props, { ...rest }) {
                 icon={Code}
                 iconColor="NTPCGreen"
               />
-              </div>
-            </GridItem>
-          </GridContainer>
-        </div>
+            </div>
+          </GridItem>
+        </GridContainer>
       </div>
-      
-   
+    </div>
   ));
 }

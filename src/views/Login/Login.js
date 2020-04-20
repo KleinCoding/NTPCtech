@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import Parallax from "components/Parallax/Parallax.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Card from "components/Card/Card.js";
@@ -64,10 +65,11 @@ export default function LoginPage(props) {
       loginUserData.username !== "" &&
       loginUserData.password !== ""
     ) {
-      //Add logic here to submit loginUserData to your backend.
-      //Add logic to receive login confirmation from back-end
+      //Add logic here to submit loginUserData to your backend.////////////////////////////
+      //Add logic to receive login confirmation from back-end//////////////////////////////
       console.log("logging in user", loginUserData.username);
       alertOpen("Success! Logging you in...", "success", 3500);
+      
       // setLoginSuccess(true)
     } else if (loginUserData.username === "") {
       alertOpen(
@@ -85,11 +87,12 @@ export default function LoginPage(props) {
       alertOpen("Please click the checkbox and try again.", "warning", 2000);
     }
   };
+
   //This state value is checked by the alertClose function. If marked True,
   //the user will be pushed to the homepage after logging in.
   //change the path of props.history.push in alertClose to change page user is sent to
-  // eslint-disable-next-line
-  const [loginSuccess, setLoginSuccess] = useState(false);
+
+  // const [loginSuccess, setLoginSuccess] = useState(false);
 
   //These are for the notifications on message errors
   //To add additional toast alerts, use the function alertOpen()
@@ -120,13 +123,22 @@ export default function LoginPage(props) {
       open: false,
       message: "",
     });
-    if (loginSuccess === true) {
-      props.history.push("/");
-    }
+
+    //Uncomment the 3 lines below after adding logic to handleFormSubmit() to recieve response from your database/backend + 
+    // if (loginSuccess === true) {
+    //   props.history.push("/");
+    // }
   };
 
   return (
     <Fragment>
+       <Parallax
+        id="page-top"
+        image={require("assets/img/jason/hires/skyline1.jpg")}
+        filter="dark"
+        className={classes.parallax}
+        style={{ objectFit: "cover", maxHeight: "20vh" }}
+      />
       <div id="login-container" className={classes.main}>
         <GridContainer id="login-inputs">
           <GridItem
@@ -197,7 +209,7 @@ export default function LoginPage(props) {
       </div>
 
       <div>
-        {/* This is the toast popup for login notifications */}
+        {/* This is the toast popup for login notifications, handled by alertOpen()/alertClose() which are called in handleFormSubmit() */}
         <Snackbar
           autoHideDuration={alertState.duration}
           anchorOrigin={{ vertical: "top", horizontal: "center" }}

@@ -11,6 +11,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Button from "components/CustomButtons/Button.js";
 
+import Testimonials from "../Landing/Sections/Testimonials"
 //Assets
 import Profile from "assets/img/jason/jasonPhoto.jpg";
 
@@ -33,7 +34,7 @@ export default function ProfilePage() {
     <div style={{ textAlign: "-webkit-center"}}>
       <Parallax
         image={require("assets/img/jason/hires/hello2.jpg")}
-        // filter="dark"
+        filter="dark"
         className={classes.parallax}
         style={{ objectFit: "cover"}}
       />
@@ -49,28 +50,35 @@ export default function ProfilePage() {
                   <h3 className={classes.title}>Jason Radcliffe</h3>
                   <h6>FOUNDER</h6>
                   <Button
-                    justIcon
-                    simple
-                    color="dribbble"
-                    className={classes.margin5}
-                  >
-                    <i className={classes.socials + " fab fa-dribbble"} />
-                  </Button>
-                  <Button
-                    justIcon
-                    simple
-                    color="twitter"
+                   justIcon
+                   simple
+                   href="https://twitter.com/NTPCTechSol?s=09"
+                   target="_blank"
+                   rel="noreferrer"
+                   color="twitter"
                     className={classes.margin5}
                   >
                     <i className={classes.socials + " fab fa-twitter"} />
                   </Button>
                   <Button
+                     justIcon
+                     simple
+                     href="https://facebook.com/ntpctechsolutions"
+                     target="_blank"
+                     rel="noreferrer"
+                     color="facebook"
+                  >
+                    <i className={classes.socials + " fab fa-facebook-square"} />
+                  </Button>
+                  <Button
                     justIcon
                     simple
-                    color="pinterest"
-                    className={classes.margin5}
+                    href="https://www.linkedin.com/company/ntpctech"
+                    target="_blank"
+                    rel="noreferrer"
+                    color="linkedin"
                   >
-                    <i className={classes.socials + " fab fa-pinterest"} />
+                    <i className={classes.socials + " fab fa-linkedin"} />
                     
                   </Button>
                   <br />
@@ -81,8 +89,6 @@ export default function ProfilePage() {
             </GridItem>
           </GridContainer>
           <div >
-
-
             <p>
               NTPC Tech Solutions was founded in 2017 to
               provide professional Information Technology services that enable
@@ -103,8 +109,12 @@ export default function ProfilePage() {
               <br />
               <br />
               <br />
+              <br /> 
+              <div className="testimonials" id ="testimonials">
               <br />
-              <br />
+              <hr />
+              <Testimonials />
+              </div>
               <br />
               <br />
             </p>

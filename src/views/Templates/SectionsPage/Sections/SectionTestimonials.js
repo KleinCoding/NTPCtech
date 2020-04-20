@@ -28,6 +28,8 @@ import christian from "assets/img/faces/christian.jpg";
 
 const useStyles = makeStyles(testimonialsStyle);
 
+
+
 export default function SectionTestimonials({ ...rest }) {
   const classes = useStyles();
   const settings = {

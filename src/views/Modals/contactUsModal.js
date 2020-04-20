@@ -69,7 +69,7 @@ export default function SectionContacts(props, { ...rest }) {
       messageDataModal.email !== "" &&
       messageDataModal.message !== ""
     ) {
-      //Add code here to submit messageData to your backend.
+      //Add code here to submit messageData to your backend/mailer service.
       console.log("submitting user message from Modal", messageDataModal);
       alertOpen(
         "Thank you! We will return your message as soon as possible.",

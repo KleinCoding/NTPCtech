@@ -48,7 +48,7 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <Link
-              to="/services"
+              to="/qss"
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
@@ -56,7 +56,7 @@ export default function HeaderLinks(props) {
               Solutions
             </Link>,
             <Link
-              to="/services"
+              to="/msp"
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
@@ -64,7 +64,7 @@ export default function HeaderLinks(props) {
               Managed Service Provider
             </Link>,
             <Link
-              to="/services"
+              to="/sdp"
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >
@@ -87,9 +87,8 @@ export default function HeaderLinks(props) {
           buttonIcon={Apps}
           dropdownList={[
             <Link
-              to="/login"
+              onClick={props.swapLoginModal}
               className={classes.dropdownLink}
-              onClick={props.handleDrawerToggle}
             >
               <AccountCircle className={classes.dropdownIcons} /> Customer Login
             </Link>,
@@ -117,7 +116,7 @@ export default function HeaderLinks(props) {
               <Face className={classes.dropdownIcons} /> About Us
             </Link>,
             <Link
-              to="/testimonials"
+              to="/about#testimonials"
               className={classes.dropdownLink}
               onClick={props.handleDrawerToggle}
             >

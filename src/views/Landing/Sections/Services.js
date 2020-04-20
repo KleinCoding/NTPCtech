@@ -74,7 +74,7 @@ export default function SectionServices(props, { ...rest }) {
                 >
                   <CardBody background className={classes.cardBody4}>
                     <Badge color="rose">Client: Domino's Pizza</Badge>
-                    <a href="#pablo" onClick={(e) => e.preventDefault}>
+                    <a href="/qss" onClick={(e) => e.preventDefault}>
                       <h3 className={classes.cardTitle}>
                         IT Service Solutions
                       </h3>
