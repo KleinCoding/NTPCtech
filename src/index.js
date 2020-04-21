@@ -127,14 +127,15 @@ function App() {
             fixed
           />
 
-          {/* Add additional routes here */}
+         
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/about" component={About} />
           <Route exact path="/qss" component={QuickServicePage} />
           <Route exact path="/msp" component={ManagedProviderPage} />
           <Route exact path="/sdp" component={SoftwareDevPage} />
-     
+          {/* Add additional routes here */}
+          {/* To add aditional pages, import the component you want to display at the top and use the Route component like above */}
 
           <ContactFooter />
           <Footer />
