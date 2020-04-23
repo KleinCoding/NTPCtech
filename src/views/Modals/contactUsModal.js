@@ -19,7 +19,6 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 
 // @material-ui/icons
-import PinDrop from "@material-ui/icons/PinDrop";
 import Phone from "@material-ui/icons/Phone";
 import Check from "@material-ui/icons/Check";
 import CloseIcon from "@material-ui/icons/Close";
@@ -160,18 +159,7 @@ export default function SectionContacts(props, { ...rest }) {
                 Let us know what we can do for you and your business. Reach out
                 today!
               </h5>
-              <InfoArea
-                className={classes.infoArea}
-                title="Find us at the office"
-                description={
-                  <span>
-                    Jason Radcliff
-                    <br /> Dallas,
-                    <br /> Places
-                  </span>
-                }
-                icon={PinDrop}
-              />
+              
               <InfoArea
                 className={classes.infoArea}
                 title="Give us a ring"

@@ -128,8 +128,12 @@ function App() {
             fixed
           />
 
+<<<<<<< HEAD
           {/* Add additional routes here */}
           <Switch>
+=======
+         
+>>>>>>> 7ffdb7e4ccc4d927c3c10a58896977a6d722a807
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={mobileLogin} />
           <Route exact path="/contact" component={mobileContact} />
@@ -137,11 +141,16 @@ function App() {
           <Route exact path="/qss" component={QuickServicePage} />
           <Route exact path="/msp" component={ManagedProviderPage} />
           <Route exact path="/sdp" component={SoftwareDevPage} />
+<<<<<<< HEAD
           {/* This last route will render for any path not listed above
           Users will always be taken to the landing page if directed to a nonexistant route.
           You can replace this with a 404 page if you prefer */}
           <Route component={Landing} />
          </Switch>
+=======
+          {/* Add additional routes here */}
+          {/* To add aditional pages, import the component you want to display at the top and use the Route component like above */}
+>>>>>>> 7ffdb7e4ccc4d927c3c10a58896977a6d722a807
 
           <ContactFooter />
           <Footer />
