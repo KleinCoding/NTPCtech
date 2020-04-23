@@ -1,7 +1,7 @@
 import React, { useLayoutEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, withRouter, Switch } from "react-router-dom";
 
 //NavBar
 import Header from "./views/Header/Header";
@@ -10,7 +10,8 @@ import Button from "components/CustomButtons/Button.js";
 
 //Pages/views
 import Landing from "views/Landing/Landing.js";
-import Login from "views/Login/Login.js";
+import mobileLogin from "views/mobileLogin/mobileLogin.js";
+import mobileContact from "views/mobileContact/mobileContact.js";
 import QuickServicePage from "views/Services/QuickService/quickServicePage.js";
 import ManagedProviderPage from "views/Services/ManagedProvider/managedProviderPage.js";
 import SoftwareDevPage from "views/Services/SoftwareDevelopment/softwareDevPage.js";
@@ -128,20 +129,26 @@ function App() {
           />
 
           {/* Add additional routes here */}
+          <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="/login" component={Login} />
+          <Route exact path="/login" component={mobileLogin} />
+          <Route exact path="/contact" component={mobileContact} />
           <Route exact path="/about" component={About} />
           <Route exact path="/qss" component={QuickServicePage} />
           <Route exact path="/msp" component={ManagedProviderPage} />
           <Route exact path="/sdp" component={SoftwareDevPage} />
-     
+          {/* This last route will render for any path not listed above
+          Users will always be taken to the landing page if directed to a nonexistant route.
+          You can replace this with a 404 page if you prefer */}
+          <Route component={Landing} />
+         </Switch>
 
           <ContactFooter />
           <Footer />
         </ScrollToTop>
       </div>
 
-      {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users */}
+      {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users. Mobile users are routed to the login component */}
       <div id="modal-login-container">
         <Dialog
           classes={{
@@ -189,7 +196,7 @@ function App() {
         </Dialog>
       </div>
 
-       {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users */}
+       {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users. Mobile users are routed to the contact component */}
        <div id="modal-contact-container">
         <Dialog
           classes={{
