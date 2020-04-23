@@ -1,7 +1,7 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { createBrowserHistory } from "history";
-import { BrowserRouter as Router, Route, withRouter, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //NavBar
 import Header from "./views/Header/Header";
@@ -57,14 +57,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-//This function ensures that the browser resets to the top of the page upon loading a route
-const ScrollToTop = withRouter(({ children, location: { pathname } }) => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
-  return children || null;
-});
 
 function App() {
   //Detects if user is on mobile or desktop
@@ -108,7 +101,7 @@ function App() {
   return (
     <Router history={hist}>
       <div className="App" id="root-container">
-        <ScrollToTop>
+        
           <Header
             color="transparent"
             links={
@@ -128,12 +121,9 @@ function App() {
             fixed
           />
 
-<<<<<<< HEAD
           {/* Add additional routes here */}
+
           <Switch>
-=======
-         
->>>>>>> 7ffdb7e4ccc4d927c3c10a58896977a6d722a807
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={mobileLogin} />
           <Route exact path="/contact" component={mobileContact} />
@@ -141,20 +131,15 @@ function App() {
           <Route exact path="/qss" component={QuickServicePage} />
           <Route exact path="/msp" component={ManagedProviderPage} />
           <Route exact path="/sdp" component={SoftwareDevPage} />
-<<<<<<< HEAD
           {/* This last route will render for any path not listed above
           Users will always be taken to the landing page if directed to a nonexistant route.
           You can replace this with a 404 page if you prefer */}
           <Route component={Landing} />
          </Switch>
-=======
-          {/* Add additional routes here */}
-          {/* To add aditional pages, import the component you want to display at the top and use the Route component like above */}
->>>>>>> 7ffdb7e4ccc4d927c3c10a58896977a6d722a807
 
           <ContactFooter />
           <Footer />
-        </ScrollToTop>
+        
       </div>
 
       {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users. Mobile users are routed to the login component */}
