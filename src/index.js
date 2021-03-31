@@ -1,52 +1,51 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import { createBrowserHistory } from "history";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import { createBrowserHistory } from 'history';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 //NavBar
-import Header from "./views/Header/Header";
-import HeaderLinks from "./views//Header/HeaderLinks.js";
-import Button from "components/CustomButtons/Button.js";
+import Header from './views/Header/Header';
+import HeaderLinks from './views//Header/HeaderLinks.js';
+import Button from 'components/CustomButtons/Button.js';
 
 //Pages/views
-import Landing from "views/Landing/Landing.js";
-import mobileLogin from "views/mobileLogin/mobileLogin.js";
-import mobileContact from "views/mobileContact/mobileContact.js";
-import QuickServicePage from "views/Services/QuickService/quickServicePage.js";
-import ManagedProviderPage from "views/Services/ManagedProvider/managedProviderPage.js";
-import SoftwareDevPage from "views/Services/SoftwareDevelopment/softwareDevPage.js";
-import About from "views/About/About.js";
+import Landing from 'views/Landing/Landing.js';
+import mobileLogin from 'views/mobileLogin/mobileLogin.js';
+import mobileContact from 'views/mobileContact/mobileContact.js';
+import QuickServicePage from 'views/Services/QuickService/quickServicePage.js';
+import ManagedProviderPage from 'views/Services/ManagedProvider/managedProviderPage.js';
+import SoftwareDevPage from 'views/Services/SoftwareDevelopment/softwareDevPage.js';
+import About from 'views/About/About.js';
 
 //Footers
-import ContactFooter from "views/Landing/Sections/contactUs";
-import Footer from "views/Footer/Footer.js";
+import ContactFooter from 'views/Landing/Sections/contactUs';
+import Footer from 'views/Footer/Footer.js';
 
 //Components for Modal popups
-import { makeStyles } from "@material-ui/core/styles";
-import Slide from "@material-ui/core/Slide";
-import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import style from "assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js";
+import { makeStyles } from '@material-ui/core/styles';
+import Slide from '@material-ui/core/Slide';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import Card from 'components/Card/Card.js';
+import CardHeader from 'components/Card/CardHeader.js';
+import style from 'assets/jss/material-kit-pro-react/views/componentsSections/javascriptStyles.js';
 
 // @material-ui/icons
-import Close from "@material-ui/icons/Close";
+import Close from '@material-ui/icons/Close';
 
 //Views loaded inside modal popup
-import ContactUsModal from "./views/Modals/contactUsModal";
-import LoginModal from "./views/Modals/loginModal";
+import ContactUsModal from './views/Modals/contactUsModal';
+import LoginModal from './views/Modals/loginModal';
 
 // CSS for transition animations, index and modal popups
-import "./assets/loading.css";
-import "./assets/transition.css";
-import "./index.css";
-import "./views/Modals/Modal.css";
+import './assets/loading.css';
+import './assets/transition.css';
+import './index.css';
+import './views/Modals/Modal.css';
 
 //Global CSS for material kit/material-ui
-import "assets/scss/material-kit-pro-react.scss?v=1.8.0";
-
+import 'assets/scss/material-kit-pro-react.scss?v=1.8.0';
 
 //Variable Definitions
 const useStyles = makeStyles(style);
@@ -57,13 +56,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
-
-
 function App() {
   //Detects if user is on mobile or desktop
-  const isMobile = navigator.userAgent.match(
-    /(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i
-  );
+  const isMobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
 
   //Hook to define classes for Material Kit/Material-ui design styles
   const classes = useStyles();
@@ -74,7 +69,7 @@ function App() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  
+
   //These two hooks and two functions handle the open/close state of the ContactUs and Login modal popups for desktop users.
   //This is passed to the HeaderLinks for use onClick in NavBar options
   const [contactModal, setContactModal] = useState(false);
@@ -85,45 +80,46 @@ function App() {
       setContactModal(!contactModal);
     } else if (isMobile !== null) {
       setMobileOpen(false);
-      hist.push("/services");
+      hist.push('/services');
       hist.go();
-    }};
+    }
+  };
   const swapLoginModal = () => {
     if (isMobile === null) {
       setMobileOpen(false);
       setLoginModal(!loginModal);
     } else if (isMobile !== null) {
       setMobileOpen(false);
-      hist.push("/login");
+      hist.push('/login');
       hist.go();
-    }};
+    }
+  };
 
   return (
     <Router history={hist}>
       <div className="App" id="root-container">
-        
-          <Header
-            color="transparent"
-            links={
-              <HeaderLinks
-                dropdownHoverColor="NTPCGreen"
-                handleDrawerToggle={handleDrawerToggle}
-                swapContactModal={swapContactModal}
-                swapLoginModal={swapLoginModal}
-              />
-            }
-            changeColorOnScroll={{
-              height: 100,
-              color: "NTPCBlue",
-            }}
-            mobileOpen={mobileOpen}
-            handleDrawerToggle={handleDrawerToggle}
-            fixed
-          />
+        <Header
+          color="transparent"
+          links={
+            <HeaderLinks
+              dropdownHoverColor="NTPCGreen"
+              handleDrawerToggle={handleDrawerToggle}
+              swapContactModal={swapContactModal}
+              swapLoginModal={swapLoginModal}
+            />
+          }
+          changeColorOnScroll={{
+            height: 100,
+            color: 'NTPCBlue',
+          }}
+          mobileOpen={mobileOpen}
+          handleDrawerToggle={handleDrawerToggle}
+          fixed
+        />
 
-          {/* Add additional routes here */}
+        {/* Add additional routes here */}
 
-          <Switch>
+        <Switch>
           <Route exact path="/" component={Landing} />
           <Route exact path="/login" component={mobileLogin} />
           <Route exact path="/contact" component={mobileContact} />
@@ -135,19 +131,19 @@ function App() {
           Users will always be taken to the landing page if directed to a nonexistant route.
           You can replace this with a 404 page if you prefer */}
           <Route component={Landing} />
-         </Switch>
+        </Switch>
 
-          <ContactFooter />
-          <Footer />
-        
+        <ContactFooter />
+        <Footer />
       </div>
 
-      {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users. Mobile users are routed to the login component */}
+      {/* This is the modal popup for the "Customer Login" button on the NavBar, this only appears for desktop users. 
+      Mobile users are routed to the login component */}
       <div id="modal-login-container">
         <Dialog
           classes={{
             root: classes.modalRoot,
-            paper: classes.modal + " " + classes.modalLarge,
+            paper: classes.modal + ' ' + classes.modalLarge,
           }}
           open={loginModal}
           TransitionComponent={Transition}
@@ -157,16 +153,8 @@ function App() {
           aria-describedby="login-modal-slide-description"
         >
           <Card plain className={classes.modalLoginCard}>
-            <DialogTitle
-              id="login-modal-slide-title"
-              disableTypography
-              className={classes.modalHeader}
-            >
-              <CardHeader
-                plain
-                color="NTPCBlue"
-                className={`${classes.textCenter} ${classes.cardLoginHeader}`}
-              >
+            <DialogTitle id="login-modal-slide-title" disableTypography className={classes.modalHeader}>
+              <CardHeader plain color="NTPCBlue" className={`${classes.textCenter} ${classes.cardLoginHeader}`}>
                 <Button
                   simple
                   className={classes.modalCloseButton}
@@ -174,28 +162,26 @@ function App() {
                   aria-label="Close"
                   onClick={() => setContactModal(false)}
                 >
-                  {" "}
+                  {' '}
                   <Close className={classes.modalClose} />
                 </Button>
                 <h5 className={classes.cardTitleWhite}>Need a hand?</h5>
               </CardHeader>
             </DialogTitle>
-            <DialogContent
-              id="login-modal-slide-description"
-              className={classes.modalBody}
-            >
+            <DialogContent id="login-modal-slide-description" className={classes.modalBody}>
               <LoginModal />
             </DialogContent>
           </Card>
         </Dialog>
       </div>
 
-       {/* This is the modal popup for the "Contact Us" button on the NavBar, this only appears for desktop users. Mobile users are routed to the contact component */}
-       <div id="modal-contact-container">
+      {/* This is the modal popup for the "Contact Us" button on the NavBar, 
+       this only appears for desktop users. Mobile users are routed to the contact component */}
+      <div id="modal-contact-container">
         <Dialog
           classes={{
             root: classes.modalRoot,
-            paper: classes.modal + " " + classes.modalLarge,
+            paper: classes.modal + ' ' + classes.modalLarge,
           }}
           open={contactModal}
           TransitionComponent={Transition}
@@ -205,16 +191,8 @@ function App() {
           aria-describedby="contact-modal-slide-description"
         >
           <Card plain className={classes.modalLoginCard}>
-            <DialogTitle
-              id="contact-modal-slide-title"
-              disableTypography
-              className={classes.modalHeader}
-            >
-              <CardHeader
-                plain
-                color="NTPCBlue"
-                className={`${classes.textCenter} ${classes.cardLoginHeader}`}
-              >
+            <DialogTitle id="contact-modal-slide-title" disableTypography className={classes.modalHeader}>
+              <CardHeader plain color="NTPCBlue" className={`${classes.textCenter} ${classes.cardLoginHeader}`}>
                 <Button
                   simple
                   className={classes.modalCloseButton}
@@ -222,26 +200,21 @@ function App() {
                   aria-label="Close"
                   onClick={() => setContactModal(false)}
                 >
-                  {" "}
+                  {' '}
                   <Close className={classes.modalClose} />
                 </Button>
                 <h5 className={classes.cardTitleWhite}>Need a hand?</h5>
               </CardHeader>
             </DialogTitle>
-            <DialogContent
-              id="contact-modal-slide-description"
-              className={classes.modalBody}
-            >
+            <DialogContent id="contact-modal-slide-description" className={classes.modalBody}>
               <ContactUsModal />
-
             </DialogContent>
           </Card>
         </Dialog>
       </div>
-
     </Router>
   );
 }
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 ReactDOM.render(<App />, rootElement);
