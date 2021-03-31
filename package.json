@@ -9,7 +9,7 @@
     "@material-ui/lab": "^4.0.0-alpha.49",
     "@n8tb1t/use-scroll-position": "^1.0.43",
     "animate.css": "3.7.2",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.2",
     "classnames": "2.2.6",
     "eslint-loader": "^4.0.0",
     "history": "4.9.0",
